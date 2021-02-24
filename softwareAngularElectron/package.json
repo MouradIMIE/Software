@@ -1,8 +1,7 @@
 {
   "name": "software-angular-electron",
   "version": "1.0.0",
-  "main": "main.ts",
-  "type":"module",
+  "main": "main.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
