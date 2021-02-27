@@ -9,6 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { LoginComponent } from './Login/login.component';
 
@@ -24,7 +25,14 @@ import { LoginComponent } from './Login/login.component';
     MatButtonModule,
     MatInputModule,
     MatIconModule,
+    MatFormFieldModule,
     BrowserAnimationsModule,
+  ],
+  exports : [
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
