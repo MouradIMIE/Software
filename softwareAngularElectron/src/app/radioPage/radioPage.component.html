@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="split left">
+        <!-- Menu principale a gauche -->
+        <div class="centered-left">
+            <div class="page-content">
+                <div class="menu">
+                    <ul class="v-menu">
+                        <li class="menu-title">MyAdmin</li>
+                        <li><a class="mif-name">AdminName</a></li>
+                        <li class="menu-title">General</li>
+                        <li><a href="#"><span class="mif-home icon fg-blue"></span>Dashboard</a></li>
+                        <li><a href="#"><span class="mif-organization icon"></span>Admin</a></li>
+                        <li><a href="#"><span class="mif-music icon"></span>Songs</a></li>
+                        <li><a href="#"><span class="mif-calendar icon"></span>Programs</a></li>
+                        <a class="bottom-three"></a>
+                        <li class="menu-title">Settings</li>
+                        <li><a href="#"><span class="mif-chart-dots icon"></span>Statistics</a></li>
+                        <li><a href="#"><span class="mif-cancel icon"></span>Logout</a></li>
+                        <a class="bottom-three"></a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Ligne verticale séparant le menu du reste de l'interface radio -->
+        <div class="verticalLine"></div>
+    </div>
+    <div class="split right">
+        <!-- Logo en haut a droite -->
+        <img class="logo" src="/src/assets/png/Logo.PNG">
+        <!-- Input pour les messages -->
+        <input type="email" id="email" pattern=".+@globex.com" size="30" required>
+        <!-- Bouton pour lecture audio -->
+        <div class="centered-button-audio">
+            <button id="b1" class="button cycle large bg-white fg-blue" data-role="audio-button" data-audio-src=""
+                data-audio-volume=".1">
+                <span class="mif-play"></span>
+            </button>
+        </div>
+    </div>
+
+
+</body>
+
+
+</html>
