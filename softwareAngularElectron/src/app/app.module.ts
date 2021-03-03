@@ -10,13 +10,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { NgMetro4Module } from 'ng-metro4';
 
 import { LoginComponent } from './Login/login.component';
+import { RadioPageComponent } from './radioPage/radioPage.component'; 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    RadioPageComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +30,7 @@ import { LoginComponent } from './Login/login.component';
     MatIconModule,
     MatFormFieldModule,
     BrowserAnimationsModule,
+    NgMetro4Module,
   ],
   exports : [
     MatButtonModule,

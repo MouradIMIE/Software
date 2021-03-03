@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Login/login.component';
-
+import { RadioPageComponent } from './radioPage/radioPage.component';
 
 const routes: Routes = [{
   path: '',
@@ -12,6 +12,10 @@ const routes: Routes = [{
     {
       path: 'login',
       component: LoginComponent
+    },
+    {
+      path :'radio',
+      component: RadioPageComponent
     }
   ]
 }];
