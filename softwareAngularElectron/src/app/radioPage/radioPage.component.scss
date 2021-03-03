@@ -165,16 +165,23 @@ p {
   float: right;
 }
 
-.button{
-    border: 2px solid black;
+.output-area{
+  position: relative;
+  border: 2px solid black;
+  top:-90px;
+  height: 150px;
 }
 
-.centered-button-audio {
-    position: absolute;
-    top: 65%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+.button {
+  border: 2px solid black;
+}
+
+.centered-element {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 input {
@@ -182,4 +189,61 @@ input {
   color: #000000;
   font-size: #000000;
   border: 1px;
+}
+
+.textarea {
+  position: relative;
+  margin-top: 40px;
+  width: 300px;
+  border: 1px solid #000000;
+  top: 50px;
+}
+
+.button.primary {
+  position: relative;
+  outline-color: #75b5fd;
+  background-color: #0366d6;
+  color: #fff;
+  left: 60%;
+  
+}
+.mif-volume-medium{
+  position: relative;
+  top: 30px;
+  right: 170px;
+}
+
+.slider-volume{
+  position: relative;
+  margin-top: 70px;
+}
+.slider .complete {
+  z-index: 3;
+  background-color: #0366d6;
+}
+
+.buttonLive {
+	background:linear-gradient(to bottom, #ff0000 5%, #576650 100%);
+	background-color:#ff0000;
+	border-radius:42px;
+  border: 1px solid #000000;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Trebuchet MS;
+	font-size:17px;
+	font-style:italic;
+	padding:10px 9px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #223320;
+}
+.buttonLive:hover {
+	background:linear-gradient(to bottom, #576650 5%, #ff0000 100%);
+	background-color:#576650;
+}
+
+.button-go-live{
+  position: relative;
+  top:20px;
+  left:120px;
 }

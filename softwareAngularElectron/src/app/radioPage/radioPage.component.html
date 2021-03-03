@@ -22,7 +22,7 @@
                         <a class="bottom-three"></a>
                         <li class="menu-title">Settings</li>
                         <li><a href="#"><span class="mif-chart-dots icon"></span>Statistics</a></li>
-                        <li><a href="#"><span class="mif-cancel icon"></span>Logout</a></li>
+                        <li><a href="/login"><span class="mif-cancel icon"></span>Logout</a></li>
                         <a class="bottom-three"></a>
                     </ul>
                 </div>
@@ -34,14 +34,34 @@
     <div class="split right">
         <!-- Logo en haut a droite -->
         <img class="logo" src="/src/assets/png/Logo.PNG">
-        <!-- Input pour les messages -->
-        <input type="email" id="email" pattern=".+@globex.com" size="30" required>
         <!-- Bouton pour lecture audio -->
-        <div class="centered-button-audio">
+        <div class="centered-element">
+            <!-- Informations Area -->
+            <textarea class="output-area">Booba - Pigeon</textarea>
+            <!-- Button Audio -->
             <button id="b1" class="button cycle large bg-white fg-blue" data-role="audio-button" data-audio-src=""
                 data-audio-volume=".1">
                 <span class="mif-play"></span>
             </button>
+            <!-- Slider pour l'audio -->
+            <div class="slider-volume">
+                <span class="mif-volume-medium"></span>
+                <input data-role="slider" class="ultra-thin cycle-marker">
+            </div>
+            <div class="button-go-live">
+                <button href="#" class="buttonLive">Go live</button>
+            </div>
+            <!-- Text area pour commenter  -->
+            <div class="textarea">
+                <textarea data-role="textarea" data-clear-button-icon="<span class='mif-cancel'></span>"></textarea>
+            </div>
+            <!-- div pour leet button send -->
+            <div class="button-send">
+                <button class="button primary cycle">
+                    <span class="mif-compass"></span>
+                </button>
+            </div>
+
         </div>
     </div>
 
