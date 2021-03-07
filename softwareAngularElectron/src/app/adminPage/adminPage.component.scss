@@ -184,14 +184,6 @@ p {
   text-align: center;
 }
 
-input {
-  padding-left: 10px;
-  color: #000000;
-  font-size: #000000;
-  border: 1px;
-  margin-bottom: 10px;
-}
-
 .title-page {
   position: relative;
   left: 45%;
@@ -225,4 +217,23 @@ input {
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     z-index: 9999; /* Sit on top - higher than any other z-index in your site*/
+}
+
+input[type=text] {
+  margin-bottom: 20px;
+  border: 2px solid #0366d6;
+  border-radius: 4px;
+  padding-left: 10px;
+  width: 50%;
+  left: 25%;
+}
+
+.inputModal{
+  position: relative;
+  left: 41%
+}
+
+.inputModalemail{
+  position: relative;
+  left: 43%
 }

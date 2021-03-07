@@ -1,7 +1,7 @@
 {
   "name": "software-angular-electron",
   "version": "1.0.0",
-  "main": "main.js",
+  "main": "src/electronMain.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

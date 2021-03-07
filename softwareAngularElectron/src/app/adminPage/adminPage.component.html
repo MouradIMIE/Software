@@ -19,14 +19,14 @@
                         <li class="menu-title">MyAdmin</li>
                         <li><a class="mif-name">AdminName</a></li>
                         <li class="menu-title">General</li>
-                        <li><a href="/radio"><span class="mif-home icon"></span>Dashboard</a></li>
-                        <li><a href="/admin"><span class="mif-organization icon fg-blue"></span>Admin</a></li>
+                        <li><a routerLink="/radio"><span class="mif-home icon"></span>Dashboard</a></li>
+                        <li><a routerLink="/admin"><span class="mif-organization icon fg-blue"></span>Admin</a></li>
                         <li><a href="#"><span class="mif-music icon"></span>Songs</a></li>
                         <li><a href="#"><span class="mif-calendar icon"></span>Programs</a></li>
                         <a class="bottom-three"></a>
                         <li class="menu-title">Settings</li>
                         <li><a href="#"><span class="mif-chart-dots icon"></span>Statistics</a></li>
-                        <li><a href="/login"><span class="mif-cancel icon"></span>Logout</a></li>
+                        <li><a routerLink="/login"><span class="mif-cancel icon"></span>Logout</a></li>
                         <a class="bottom-three"></a>
                     </ul>
                 </div>
@@ -82,7 +82,7 @@
         </div>
         <!-- Modal -->
         <div class="modal" id="adminModal" role="dialog" [ngClass]="{'show':showModal}">
-            <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" (click)="showModal=false"
@@ -90,11 +90,21 @@
                         <h4 class="modal-title">Add a new admin</h4>
                     </div>
                     <div class="modal-body">
-                        <input type="text" data-role="materialinput" data-label="Admin email" placeholder="Enter email">
-                        <input type="text" data-role="materialinput" data-label="Admin last name"
-                            placeholder="Enter last name">
-                        <input type="text" data-role="materialinput" data-label="Admin first name"
-                            placeholder="Enter first name">
+                        <div class="formgroup">
+                            <label class="inputModal">Your firstname*</label>
+                            <input type="text"/>
+                        </div>
+                        <div class="formgroup" id="name-form">
+                            <label class="inputModal">Your lastname*</label>
+                            <input type="text"/>
+                        </div>
+                        <div class="formgroup" id="name-form">
+                            <label class="inputModalemail">Your email*</label>
+                            <input type="text"/>
+                        </div>
+                        <!-- <input type="text" data-label="Admin email" placeholder="Enter email">
+                        <input type="text" data-label="Admin last name" placeholder="Enter last name">
+                        <input type="text" data-label="Admin first name" placeholder="Enter first name"> -->
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" (click)="showModal=false"
