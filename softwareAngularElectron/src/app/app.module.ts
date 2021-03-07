@@ -15,13 +15,15 @@ import { NgMetro4Module } from 'ng-metro4';
 import { LoginComponent } from './Login/login.component';
 import { RadioPageComponent } from './radioPage/radioPage.component'; 
 import { AdminPageComponent } from './adminPage/adminPage.component';
+import { SongPageComponent } from './songPage/songPage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RadioPageComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    SongPageComponent
   ],
   imports: [
     BrowserModule,
