@@ -4,6 +4,7 @@ import { AdminPageComponent } from './adminPage/adminPage.component';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Login/login.component';
 import { RadioPageComponent } from './radioPage/radioPage.component';
+import { SongPageComponent } from './songPage/songPage.component';
 
 const routes: Routes = [{
   path: '',
@@ -21,6 +22,10 @@ const routes: Routes = [{
     {
       path:'admin',
       component:AdminPageComponent
+    },
+    {
+      path:'song',
+      component:SongPageComponent
     }
   ]
 }];

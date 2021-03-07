@@ -47,60 +47,70 @@
                     data-pagination-short-mode="true">
                     <thead>
                         <tr>
-                            <td>First name</td>
-                            <td>Last name</td>
-                            <td>Email</td>
-                            <td>Created by</td>
+                            <td>Title</td>
+                            <td>Duration</td>
+                            <td>Artist</td>
+                            <td>Genre</td>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Mourad</td>
-                            <td>Boukhalfi</td>
-                            <td>mouradboukhalfi3@gmail.com</td>
-                            <td>Super Admin</td>
+                            <td>RST</td>
+                            <td>2:44</td>
+                            <td>Booba</td>
+                            <td>Rap</td>
                         </tr>
                         <tr>
-                            <td>Marc</td>
-                            <td>Jean Pierre</td>
-                            <td>jeanpierre.developer@gmail.com</td>
-                            <td>Mourad</td>
+                            <td>Bonne journée</td>
+                            <td>3:24</td>
+                            <td>Booba ft. Sdm</td>
+                            <td>Rap</td>
                         </tr>
                         <tr>
-                            <td>Nelson</td>
-                            <td>Tapinfo</td>
-                            <td>tapinfoulrichnelson@gmail.com</td>
-                            <td>Mourad</td>
+                            <td>Ultra</td>
+                            <td>2:59</td>
+                            <td>Booba</td>
+                            <td>Rap</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <!-- Button login -->
+            <!-- Button add song -->
             <button type="button" class="btn btn-info btn-lg" (click)="showModal=true" data-toggle="modal"
-                data-target="#adminModal">Add a new
-                admin</button>
+                data-target="#songModal">Add a new
+                song</button>
         </div>
         <!-- Modal -->
-        <div class="modal" id="adminModal" role="dialog" [ngClass]="{'show':showModal}">
+        <div class="modal" id="songModal" role="dialog" [ngClass]="{'show':showModal}">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" (click)="showModal=false"
                             data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Add a new admin</h4>
+                        <h4 class="modal-title">Add a song</h4>
                     </div>
                     <div class="modal-body">
+                        <!-- Add song -->
+                        <input class ="action-button second fg-blue icon mif-plus" id="contained-button-file" multiple type="file" />
                         <div class="formgroup">
-                            <label class="inputModal">Your firstname*</label>
-                            <input type="text"/>
+                            <label class="inputModal-s">Title*</label>
+                            <input type="text" />
                         </div>
                         <div class="formgroup" id="name-form">
-                            <label class="inputModal">Your lastname*</label>
-                            <input type="text"/>
+                            <label class="inputModal">Artist*</label>
+                            <input type="text" />
                         </div>
                         <div class="formgroup" id="name-form">
-                            <label class="inputModalemail">Your email*</label>
-                            <input type="text"/>
+                            <label class="inputModal">Album*</label>
+                            <input type="text" />
+                        </div>
+                        <div class="formgroup" id="name-form">
+                            <label class="inputModal">Genre*</label>
+                            <input type="text" />
+                        </div>
+                        <div class="formgroup" id="name-form">
+                            <label class="inputModal-s">Year*</label>
+                            <input type="text" />
                         </div>
                     </div>
                     <div class="modal-footer">
