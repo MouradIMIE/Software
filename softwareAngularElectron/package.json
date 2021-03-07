@@ -1,7 +1,7 @@
 {
   "name": "software-angular-electron",
   "version": "1.0.0",
-  "main": "main.js",
+  "main": "src/electronMain.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -24,7 +24,9 @@
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
+    "@ng-bootstrap/ng-bootstrap": "^3.3.1",
     "core-js": "^2.5.4",
+    "jquery": "^3.6.0",
     "metro4": "4.3.7",
     "moment": "^2.24.0",
     "ng-metro4": "^2.0.1",
@@ -38,6 +40,7 @@
     "@angular/language-service": "^6.1.0",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/jquery": "^3.5.5",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.3.0",
     "electron": "^11.3.0",

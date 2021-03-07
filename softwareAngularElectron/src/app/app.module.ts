@@ -14,12 +14,14 @@ import { NgMetro4Module } from 'ng-metro4';
 
 import { LoginComponent } from './Login/login.component';
 import { RadioPageComponent } from './radioPage/radioPage.component'; 
+import { AdminPageComponent } from './adminPage/adminPage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RadioPageComponent
+    RadioPageComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,
