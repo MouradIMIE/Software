@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminPageComponent } from './adminPage/adminPage.component';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Login/login.component';
+import { ProgramsComponent } from './programs/programs.component';
 import { RadioPageComponent } from './radioPage/radioPage.component';
 import { SongPageComponent } from './songPage/songPage.component';
 
@@ -26,6 +27,10 @@ const routes: Routes = [{
     {
       path:'song',
       component:SongPageComponent
+    },
+    {
+      path:'programs',
+      component:ProgramsComponent
     }
   ]
 }];

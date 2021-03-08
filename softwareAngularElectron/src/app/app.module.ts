@@ -10,12 +10,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTabsModule } from '@angular/material/tabs'
 import { NgMetro4Module } from 'ng-metro4';
 
 import { LoginComponent } from './Login/login.component';
 import { RadioPageComponent } from './radioPage/radioPage.component'; 
 import { AdminPageComponent } from './adminPage/adminPage.component';
 import { SongPageComponent } from './songPage/songPage.component';
+import { ProgramsComponent } from './programs/programs.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { SongPageComponent } from './songPage/songPage.component';
     LoginComponent,
     RadioPageComponent,
     AdminPageComponent,
-    SongPageComponent
+    SongPageComponent,
+    ProgramsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +35,7 @@ import { SongPageComponent } from './songPage/songPage.component';
     MatButtonModule,
     MatInputModule,
     MatIconModule,
+    MatTabsModule,
     MatFormFieldModule,
     BrowserAnimationsModule,
     NgMetro4Module,
@@ -40,7 +44,8 @@ import { SongPageComponent } from './songPage/songPage.component';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
