@@ -54,7 +54,9 @@ export class ProgramsComponent{
     CalendarView = CalendarView;
   
     viewDate: Date = new Date();
-  
+    // -----------------------------------------------------------------------------------------------------------
+    //                                               CALENDAR
+    // -----------------------------------------------------------------------------------------------------------                                         CALENDAR
     modalData: {
       action: string;
       event: CalendarEvent;
@@ -190,4 +192,14 @@ export class ProgramsComponent{
     closeOpenMonthViewDay() {
       this.activeDayIsOpen = false;
     }
+
+    // -----------------------------------------------------------------------------------------------------------
+    //                                               DUPLICATE DIV DATE PICKER
+    // -----------------------------------------------------------------------------------------------------------  
+    duplicateDatePicker():void {
+      var itm = document.getElementById("datePickerDiv").lastChild;
+      var cln = itm.cloneNode(true);
+      document.getElementById("datePickerDiv").appendChild(cln);
+    }
+    
   }

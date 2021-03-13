@@ -14,6 +14,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTabsModule } from '@angular/material/tabs'
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material'
 import { NgMetro4Module } from 'ng-metro4';
 
 import { LoginComponent } from './Login/login.component';
@@ -39,6 +41,8 @@ import { ProgramsComponent } from './programs/programs.component';
     MatInputModule,
     MatIconModule,
     MatTabsModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
     MatFormFieldModule,
     BrowserAnimationsModule,
     NgMetro4Module,
@@ -53,6 +57,8 @@ import { ProgramsComponent } from './programs/programs.component';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
     MatTabsModule
   ],
   providers: [],
