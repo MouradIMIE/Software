@@ -3,6 +3,10 @@
 
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -15,10 +19,10 @@
                         <li class="menu-title">MyAdmin</li>
                         <li><a class="mif-name">AdminName</a></li>
                         <li class="menu-title">General</li>
-                        <li><a routerLink="/radio"><span class="mif-home icon fg-blue"></span>Dashboard</a></li>
+                        <li><a routerLink="/radio"><span class="mif-home icon"></span>Dashboard</a></li>
                         <li><a routerLink="/admin"><span class="mif-organization icon"></span>Admin</a></li>
                         <li><a routerLink="/song"><span class="mif-music icon"></span>Songs</a></li>
-                        <li><a routerLink="/programs"><span class="mif-calendar icon"></span>Programs</a></li>
+                        <li><a routerLink="/programs"><span class="mif-calendar icon fg-blue"></span>Programs</a></li>
                         <a class="bottom-three"></a>
                         <li class="menu-title">Settings</li>
                         <li><a routerLink="/statistics"><span class="mif-chart-dots icon"></span>Statistics</a></li>
@@ -34,35 +38,33 @@
     <div class="split right">
         <!-- Logo en haut a droite -->
         <img class="logo" src="../../../dist/assets/png/Logo.PNG">
-        <!-- Bouton pour lecture audio -->
-        <div class="centered-element">
-            <!-- Informations Area -->
-            <textarea class="output-area">Booba - Pigeon</textarea>
-            <!-- Button Audio -->
-            <button id="b1" class="button cycle large bg-white fg-blue" data-role="audio-button" data-audio-src=""
-                data-audio-volume=".1">
-                <span class="mif-play"></span>
-            </button>
-            <!-- Slider pour l'audio -->
-            <div class="slider-volume">
-                <span class="mif-volume-medium"></span>
-                <input data-role="slider" class="ultra-thin cycle-marker">
-            </div>
-            <div class="button-go-live">
-                <button href="#" class="buttonLive">Go live</button>
-            </div>
-            <!-- Text area pour commenter  -->
-            <div class="textarea">
-                <textarea data-role="textarea" data-clear-button-icon="<span class='mif-cancel'></span>"></textarea>
-            </div>
-            <!-- div pour leet button send -->
-            <div class="button-send">
-                <button class="button primary cycle">
-                    <span class="mif-compass"></span>
-                </button>
-            </div>
-
+        <div class=title-page>
+            <p>Users Statistics</p>
         </div>
+        <div>
+            <mat-tab-group class="tabs">
+                <div class="calendar">
+
+
+                    <!-- Genre -->
+                    <mat-tab label="Genre">
+                        <div class="forms-tabs row text-center">
+                            
+                        </div>
+                    </mat-tab>
+
+
+                    <!-- Age -->
+                    <mat-tab label="Age">
+                        <div class="forms-tabs row text-center">
+                            
+                        </div>
+                    </mat-tab>
+                </div>
+
+            </mat-tab-group>
+        </div>
+
     </div>
 
 

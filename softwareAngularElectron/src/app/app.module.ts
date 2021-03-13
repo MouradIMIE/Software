@@ -23,6 +23,7 @@ import { RadioPageComponent } from './radioPage/radioPage.component';
 import { AdminPageComponent } from './adminPage/adminPage.component';
 import { SongPageComponent } from './songPage/songPage.component';
 import { ProgramsComponent } from './programs/programs.component';
+import { StatisticsComponent } from './statistics/statistics.component'
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ProgramsComponent } from './programs/programs.component';
     RadioPageComponent,
     AdminPageComponent,
     SongPageComponent,
-    ProgramsComponent
+    ProgramsComponent,
+    StatisticsComponent
   ],
   imports: [
     BrowserModule,
