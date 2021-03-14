@@ -17,12 +17,14 @@ import { MatTabsModule } from '@angular/material/tabs'
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material'
 import { NgMetro4Module } from 'ng-metro4';
+import { ChartsModule } from 'ng2-charts';
 
 import { LoginComponent } from './Login/login.component';
 import { RadioPageComponent } from './radioPage/radioPage.component'; 
 import { AdminPageComponent } from './adminPage/adminPage.component';
 import { SongPageComponent } from './songPage/songPage.component';
 import { ProgramsComponent } from './programs/programs.component';
+import { StatisticsComponent } from './statistics/statistics.component'
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { ProgramsComponent } from './programs/programs.component';
     RadioPageComponent,
     AdminPageComponent,
     SongPageComponent,
-    ProgramsComponent
+    ProgramsComponent,
+    StatisticsComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +49,7 @@ import { ProgramsComponent } from './programs/programs.component';
     MatFormFieldModule,
     BrowserAnimationsModule,
     NgMetro4Module,
+    ChartsModule,
     FlatpickrModule.forRoot(),
     CalendarModule.forRoot({
       provide: DateAdapter,

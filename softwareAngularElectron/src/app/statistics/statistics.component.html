@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="split left">
+        <!-- Menu principale a gauche -->
+        <div class="centered-left">
+            <div class="page-content">
+                <div class="menu">
+                    <ul class="v-menu">
+                        <li class="menu-title">MyAdmin</li>
+                        <li><a class="mif-name">AdminName</a></li>
+                        <li class="menu-title">General</li>
+                        <li><a routerLink="/radio"><span class="mif-home icon"></span>Dashboard</a></li>
+                        <li><a routerLink="/admin"><span class="mif-organization icon"></span>Admin</a></li>
+                        <li><a routerLink="/song"><span class="mif-music icon"></span>Songs</a></li>
+                        <li><a routerLink="/programs"><span class="mif-calendar icon fg-blue"></span>Programs</a></li>
+                        <a class="bottom-three"></a>
+                        <li class="menu-title">Settings</li>
+                        <li><a routerLink="/statistics"><span class="mif-chart-dots icon"></span>Statistics</a></li>
+                        <li><a routerLink="/login"><span class="mif-cancel icon"></span>Logout</a></li>
+                        <a class="bottom-three"></a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Ligne verticale séparant le menu du reste de l'interface radio -->
+        <div class="verticalLine"></div>
+    </div>
+    <div class="split right">
+        <!-- Logo en haut a droite -->
+        <img class="logo" src="../../../dist/assets/png/Logo.PNG">
+        <div class=title-page>
+            <p>Users Statistics</p>
+        </div>
+        <div>
+            <mat-tab-group class="tabs">
+                <div class="calendar">
+                    <!-- Genre -->
+                    <mat-tab label="Genre">
+                        <div class="forms-tabs row text-center">
+                            <p class=sous-title>Genre</p>
+                            <div class="centered-chart" style="display: block;width: 500px;">
+                                <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels"
+                                    [chartType]="pieChartType" [options]="pieChartOptions" [plugins]="pieChartPlugins"
+                                    [legend]="pieChartLegend">
+                                </canvas>
+                            </div>
+                        </div>
+                    </mat-tab>
+
+
+                    <!-- Age -->
+                    <mat-tab label="Age">
+                        <div class="forms-tabs row text-center">
+                            <p class=sous-title>Age</p>
+                            <div class="centered-chart" style="display: block;width: 500px;">
+                                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels"
+                                    [options]="barChartOptions" [plugins]="barChartPlugins" [legend]="barChartLegend"
+                                    [chartType]="barChartType">
+                                </canvas>
+                            </div>
+                        </div>
+                    </mat-tab>
+                </div>
+
+            </mat-tab-group>
+        </div>
+
+    </div>
+
+
+</body>
+
+
+</html>
