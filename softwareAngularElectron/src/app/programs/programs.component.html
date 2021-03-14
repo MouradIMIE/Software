@@ -37,7 +37,7 @@
     </div>
     <div class="split right">
         <!-- Logo en haut a droite -->
-        <img class="logo" src="../../../dist/assets/png/Logo.PNG">
+        <img class="logo" src="assets/png/Logo.PNG">
         <div class=title-page>
             <p>Edit programs</p>
         </div>
@@ -87,7 +87,9 @@
 
                         <h3>
                             <button type="button" class="btn btn-info btn-lg" (click)="showPlanningModal=true"
-                                data-toggle="modal" data-target="#planningModal">Add a new
+                                data-toggle="modal" data-target="#planningModal" style="  position:relative;
+                                left: 45%;
+                                margin-bottom: 10px;">Add a new
                                 event</button>
                             <div class="clearfix"></div>
                         </h3>
@@ -188,7 +190,9 @@
                             </tbody>
                         </table>
                         <button type="button" class="btn btn-info btn-lg" (click)="showModal=true" data-toggle="modal"
-                            data-target="#playlistModal">Add a new
+                            data-target="#playlistModal" style="  position:relative;
+                            left: 45%;
+                            margin-bottom: 10px;">Add a new
                             playlist</button>
                     </mat-tab>
                 </div>
