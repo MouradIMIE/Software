@@ -44,12 +44,16 @@
         <div>
             <mat-tab-group class="tabs">
                 <div class="calendar">
-
-
                     <!-- Genre -->
                     <mat-tab label="Genre">
                         <div class="forms-tabs row text-center">
-                            
+                            <p class=sous-title>Genre</p>
+                            <div class="centered-chart" style="display: block;width: 500px;">
+                                <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels"
+                                    [chartType]="pieChartType" [options]="pieChartOptions" [plugins]="pieChartPlugins"
+                                    [legend]="pieChartLegend">
+                                </canvas>
+                            </div>
                         </div>
                     </mat-tab>
 
@@ -57,7 +61,13 @@
                     <!-- Age -->
                     <mat-tab label="Age">
                         <div class="forms-tabs row text-center">
-                            
+                            <p class=sous-title>Age</p>
+                            <div class="centered-chart" style="display: block;width: 500px;">
+                                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels"
+                                    [options]="barChartOptions" [plugins]="barChartPlugins" [legend]="barChartLegend"
+                                    [chartType]="barChartType">
+                                </canvas>
+                            </div>
                         </div>
                     </mat-tab>
                 </div>

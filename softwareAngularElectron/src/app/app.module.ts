@@ -17,6 +17,7 @@ import { MatTabsModule } from '@angular/material/tabs'
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material'
 import { NgMetro4Module } from 'ng-metro4';
+import { ChartsModule } from 'ng2-charts';
 
 import { LoginComponent } from './Login/login.component';
 import { RadioPageComponent } from './radioPage/radioPage.component'; 
@@ -48,6 +49,7 @@ import { StatisticsComponent } from './statistics/statistics.component'
     MatFormFieldModule,
     BrowserAnimationsModule,
     NgMetro4Module,
+    ChartsModule,
     FlatpickrModule.forRoot(),
     CalendarModule.forRoot({
       provide: DateAdapter,
