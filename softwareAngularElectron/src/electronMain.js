@@ -6,11 +6,12 @@ function createWindow() {
     mainWindow = new BrowserWindow({  
         width: 800,  
         height: 600,
-        fullscreen: true,
+        icon: __dirname +'/assets/png/Logo.PNG',
+        fullscreen: false,
         webPreferences: {  
-            nodeIntegration: true  
+            nodeIntegration: true
         },
-    })  
+    })
     // and load the index.html of the app.  
     mainWindow.loadURL(`file://${__dirname}/../dist/index.html`);
     // Open the DevTools.  
