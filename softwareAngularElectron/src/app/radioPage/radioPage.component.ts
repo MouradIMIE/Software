@@ -7,7 +7,8 @@ import { Component, OnInit } from "@angular/core";
 }) 
 
 export class RadioPageComponent implements OnInit{
-
+    isPlaying : boolean = false;
+    
     constructor(){
 
     }
@@ -15,5 +16,13 @@ export class RadioPageComponent implements OnInit{
     ngOnInit() : void {
      
     }
+    // jouer la radio
+    play(){
+        this.isPlaying = true;
+    }
 
+//mettre la musique en pause
+    pause(){
+        this.isPlaying = false;
+    }
 }

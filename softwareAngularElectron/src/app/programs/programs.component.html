@@ -17,7 +17,7 @@
                 <div class="menu">
                     <ul class="v-menu">
                         <li class="menu-title">MyAdmin</li>
-                        <li><a class="mif-name">AdminName</a></li>
+                        <li><a class="mif-name">Mourad</a></li>
                         <li class="menu-title">General</li>
                         <li><a routerLink="/radio"><span class="mif-home icon"></span>Dashboard</a></li>
                         <li><a routerLink="/admin"><span class="mif-organization icon"></span>Admin</a></li>
@@ -39,7 +39,7 @@
         <!-- Logo en haut a droite -->
         <img class="logo" src="assets/png/Logo.PNG">
         <div class=title-page>
-            <p>Edit programs</p>
+            <h2>Edit programs</h2>
         </div>
         <div>
             <mat-tab-group class="tabs">
@@ -54,14 +54,14 @@
                                 <div class="btn-group">
                                     <div class="btn btn-primary" mwlCalendarPreviousView [view]="view"
                                         [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay()">
-                                        Previous
+                                        Last Month
                                     </div>
-                                    <div class="btn btn-outline-secondary" mwlCalendarToday [(viewDate)]="viewDate">
+                                    <div class="btn btn-primary" mwlCalendarToday [(viewDate)]="viewDate">
                                         Today
                                     </div>
                                     <div class="btn btn-primary" mwlCalendarNextView [view]="view"
                                         [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay()">
-                                        Next
+                                        Next Month
                                     </div>
                                 </div>
                             </div>
@@ -172,23 +172,25 @@
 
                     <!-- Playlist -->
                     <mat-tab label="Playlist">
-                        <table class="forms-tabs" data-show-search="false" data-rows="5" data-show-pagination="true"
-                            data-pagination-short-mode="true">
-                            <thead>
-                                <tr>
-                                    <td>Title</td>
-                                    <td>N° Songs</td>
-                                    <td>Time(min/s)</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Best of Booba</td>
-                                    <td>10</td>
-                                    <td>35</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="table-admin">
+                            <table class="table" data-show-search="false" data-rows="5" data-show-pagination="true"
+                                data-pagination-short-mode="true">
+                                <thead>
+                                    <tr>
+                                        <td>Title</td>
+                                        <td>N° Songs</td>
+                                        <td>Time(min/s)</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Best of Booba</td>
+                                        <td>10</td>
+                                        <td>35</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                         <button type="button" class="btn btn-info btn-lg" (click)="showModal=true" data-toggle="modal"
                             data-target="#playlistModal" style="  position:relative;
                             left: 45%;

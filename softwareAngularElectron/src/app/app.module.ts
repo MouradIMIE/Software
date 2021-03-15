@@ -13,18 +13,20 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatTabsModule } from '@angular/material/tabs'
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatTableModule } from '@angular/material/table';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material'
 import { NgMetro4Module } from 'ng-metro4';
 import { ChartsModule } from 'ng2-charts';
 
 import { LoginComponent } from './Login/login.component';
+import { ForgotPasswordComponent } from './forgotpassword/forgot-password.component'
 import { RadioPageComponent } from './radioPage/radioPage.component'; 
 import { AdminPageComponent } from './adminPage/adminPage.component';
 import { SongPageComponent } from './songPage/songPage.component';
 import { ProgramsComponent } from './programs/programs.component';
-import { StatisticsComponent } from './statistics/statistics.component'
+import { StatisticsComponent } from './statistics/statistics.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { StatisticsComponent } from './statistics/statistics.component'
     AdminPageComponent,
     SongPageComponent,
     ProgramsComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +50,7 @@ import { StatisticsComponent } from './statistics/statistics.component'
     MatNativeDateModule,
     MatDatepickerModule,
     MatFormFieldModule,
+    MatTableModule,
     BrowserAnimationsModule,
     NgMetro4Module,
     ChartsModule,
@@ -61,6 +65,7 @@ import { StatisticsComponent } from './statistics/statistics.component'
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
+    MatTableModule,
     MatNativeDateModule,
     MatDatepickerModule,
     MatTabsModule

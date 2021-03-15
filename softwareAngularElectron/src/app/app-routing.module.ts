@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminPageComponent } from './adminPage/adminPage.component';
 import { AppComponent } from './app.component';
+import { ForgotPasswordComponent } from './forgotpassword/forgot-password.component';
 import { LoginComponent } from './Login/login.component';
 import { ProgramsComponent } from './programs/programs.component';
 import { RadioPageComponent } from './radioPage/radioPage.component';
@@ -16,6 +17,10 @@ const routes: Routes = [{
     {
       path: 'login',
       component: LoginComponent
+    },
+    {
+      path: 'forgot-password',
+      component:ForgotPasswordComponent
     },
     {
       path :'radio',

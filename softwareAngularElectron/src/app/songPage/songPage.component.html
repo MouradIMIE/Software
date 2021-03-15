@@ -17,7 +17,7 @@
                 <div class="menu">
                     <ul class="v-menu">
                         <li class="menu-title">MyAdmin</li>
-                        <li><a class="mif-name">AdminName</a></li>
+                        <li><a class="mif-name">Mourad</a></li>
                         <li class="menu-title">General</li>
                         <li><a routerLink="/radio"><span class="mif-home icon"></span>Dashboard</a></li>
                         <li><a routerLink="/admin"><span class="mif-organization icon"></span>Admin</a></li>
@@ -39,7 +39,7 @@
         <img class="logo" src="assets/png/Logo.PNG">
         <!-- Title -->
         <div class=title-page>
-            <p>Song</p>
+            <h2>Song</h2>
         </div>
         <div class="centered-element">
             <!-- Table -->
@@ -81,49 +81,50 @@
                 data-target="#songModal">Add a new
                 song</button>
         </div>
-        <!-- Modal -->
-        <div class="modal" id="songModal" role="dialog" [ngClass]="{'show':showModal}">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" (click)="showModal=false"
-                            data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Add a song</h4>
+    </div>
+    <!-- Modal -->
+    <div class="modal" id="songModal" role="dialog" [ngClass]="{'show':showModal}">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" (click)="showModal=false" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add a song</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- Add song -->
+                    <input id="fileInput" type="file" style="display:none;" />
+                    <button class="action-button second bg-blue"
+                        onclick="document.getElementById('fileInput').click();">
+                        <span class="icon"><span class="mif-plus"></span></span>
+                    </button>
+                    <div class="formgroup">
+                        <label class="inputModal-s">Title*</label>
+                        <input type="text" />
                     </div>
-                    <div class="modal-body">
-                        <!-- Add song -->
-                        <button class="action-button second bg-blue" multiple type="file" >
-                            <span class="icon"><span class="mif-plus"></span></span>
-                        </button>
-                        <div class="formgroup">
-                            <label class="inputModal-s">Title*</label>
-                            <input type="text" />
-                        </div>
-                        <div class="formgroup" id="name-form">
-                            <label class="inputModal">Artist*</label>
-                            <input type="text" />
-                        </div>
-                        <div class="formgroup" id="name-form">
-                            <label class="inputModal">Album*</label>
-                            <input type="text" />
-                        </div>
-                        <div class="formgroup" id="name-form">
-                            <label class="inputModal">Genre*</label>
-                            <input type="text" />
-                        </div>
-                        <div class="formgroup" id="name-form">
-                            <label class="inputModal-s">Year*</label>
-                            <input type="text" />
-                        </div>
+                    <div class="formgroup" id="name-form">
+                        <label class="inputModal">Artist*</label>
+                        <input type="text" />
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" (click)="showModal=false"
-                            data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary">Confirm</button>
+                    <div class="formgroup" id="name-form">
+                        <label class="inputModal">Album*</label>
+                        <input type="text" />
+                    </div>
+                    <div class="formgroup" id="name-form">
+                        <label class="inputModal">Genre*</label>
+                        <input type="text" />
+                    </div>
+                    <div class="formgroup" id="name-form">
+                        <label class="inputModal-s">Year*</label>
+                        <input type="text" />
                     </div>
                 </div>
-
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" (click)="showModal=false"
+                        data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Confirm</button>
+                </div>
             </div>
+
         </div>
     </div>
 
