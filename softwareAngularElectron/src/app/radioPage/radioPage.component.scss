@@ -168,12 +168,15 @@ p {
 .output-area{
   position: relative;
   border: 2px solid black;
-  top:-90px;
+  border-radius: 15%;
+  top:-60px;
   height: 150px;
+  resize: none;
 }
 
-.button {
-  border: 2px solid black;
+.button-audio {
+  border: 3px solid #75b5fd;
+  border-radius: 50%;
 }
 
 .centered-element {
@@ -216,6 +219,7 @@ input {
 .slider-volume{
   position: relative;
   margin-top: 70px;
+  top: -30px;
 }
 .slider .complete {
   z-index: 3;
@@ -246,4 +250,8 @@ input {
   position: relative;
   top:20px;
   left:120px;
+}
+
+a:hover {
+  background-color:#5bc0de;
 }

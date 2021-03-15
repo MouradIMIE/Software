@@ -196,10 +196,16 @@ p {
   width: 1200px;
   color: black;
   border: 2px solid black;
+  box-shadow: 0px 4px 37px 6px rgba(0, 0, 0, 0.51);
+  border-radius: 25px;
+}
+.table>caption+thead>tr:first-child>td, .table>caption+thead>tr:first-child>th, .table>colgroup+thead>tr:first-child>td, .table>colgroup+thead>tr:first-child>th, .table>thead:first-child>tr:first-child>td, .table>thead:first-child>tr:first-child>th {
+  border-top: 0;
+  text-align: center;
 }
 
 .btn {
-  margin-top: 10px;
+  margin-top: 60px;
 }
 
 .modal .show {
@@ -246,4 +252,8 @@ input[type=text] {
 .inputModalemail {
   position: relative;
   left: 43%
+}
+
+a:hover {
+  background-color:#5bc0de;
 }
