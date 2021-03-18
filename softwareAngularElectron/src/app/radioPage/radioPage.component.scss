@@ -174,7 +174,7 @@ p {
 .output-area {
   position: relative;
   border: 3px solid black;
-  border-radius: 15%;
+  border-radius: 15px;
   top: -60px;
   height: 150px;
   resize: none;
@@ -205,12 +205,14 @@ button {
   border: none;
 }
 
-.textarea {
+input {
   position: relative;
   margin-top: 30px;
   width: 300px;
-  border: 1px solid #000000;
+  border: 2px solid #000000;
+  border-radius: 25px;
   top: 40px;
+  height: 75px;
 }
 
 .button.primary {
@@ -218,6 +220,7 @@ button {
   outline-color: #75b5fd;
   background-color: #0366d6;
   color: #fff;
+  top: -15px;
   left: 60%;
 
 }
@@ -270,6 +273,25 @@ a:hover {
   background-color: #5bc0de;
 }
 
-.btn:focus{
+.btn:focus {
   outline: none;
+}
+
+
+.counter_user {
+  position: relative;
+  left: 50px;
+}
+
+.onlineUsers {
+  color: rgba(0, 0, 0, 0.8);
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+h1 {
+  position: relative;
+  font-size: 25px;
+  margin: 0;
+  left: 70px;
 }

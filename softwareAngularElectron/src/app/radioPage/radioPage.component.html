@@ -34,6 +34,10 @@
     <div class="split right">
         <!-- Logo en haut a droite -->
         <img class="logo" src="assets/png/Logo.PNG">
+        <img class="counter_user" src="assets/svg/nb_users.svg">
+        <p class="onlineUsers">Online customers</p>
+        <h1 id="count">0</h1>
+
         <!-- Bouton pour lecture audio -->
         <div class="centered-element">
             <!-- Informations Area -->
@@ -42,11 +46,11 @@
                 <!-- Button Audio -->
                 <div class="flex_box">
                     <!-- Play Button -->
-                    <button class = "btn" *ngIf="!isPlaying" (click)="play()">
+                    <button class="btn" *ngIf="!isPlaying" (click)="play()">
                         <img class="logo" src="assets/svg/play.svg">
                     </button>
                     <!-- Pause Button -->
-                    <button class = "btn" *ngIf="isPlaying" (click)="pause()">
+                    <button class="btn" *ngIf="isPlaying" (click)="pause()">
                         <img class="logo" src="assets/svg/pause.svg">
                     </button>
                 </div>
@@ -56,25 +60,24 @@
                     <input data-role="slider" class="ultra-thin cycle-marker">
                 </div>
                 <div class="button-go-live">
-                    <button class = "btn" *ngIf="!isLive" (click)="goLive()">
+                    <button class="btn" *ngIf="!isLive" (click)="goLive()">
                         <img class="logo-go-live" src="assets/svg/go_live.svg">
                     </button>
 
-                    <button class = "btn" *ngIf="isLive" (click)="pauseLive()">
+                    <button class="btn" *ngIf="isLive" (click)="pauseLive()">
                         <img class="logo-go-live" src="assets/svg/live_on.svg">
                     </button>
                 </div>
             </div>
             <!-- Text area pour commenter  -->
-            <div class="textarea">
-                <textarea data-role="textarea" data-clear-button-icon="<span class='mif-cancel'></span>"></textarea>
-            </div>
+            <input type="text" />
+
             <!-- div pour le button send -->
-            <div class="button-send">
-                <button class="button primary cycle">
-                    <span class="mif-compass"></span>
-                </button>
-            </div>
+
+            <button class="button primary cycle">
+                <span class="mif-compass"></span>
+            </button>
+
 
         </div>
     </div>
