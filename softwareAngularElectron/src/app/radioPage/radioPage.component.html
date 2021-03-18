@@ -42,12 +42,12 @@
                 <!-- Button Audio -->
                 <div class="flex_box">
                     <!-- Play Button -->
-                    <button class="button-audio cycle large bg-white fg-blue" *ngIf="!isPlaying" (click)="play()">
-                        <span class="mif-play mif-5x"></span>
+                    <button class = "btn" *ngIf="!isPlaying" (click)="play()">
+                        <img class="logo" src="assets/svg/play.svg">
                     </button>
                     <!-- Pause Button -->
-                    <button class="button-audio cycle large bg-white fg-blue" *ngIf="isPlaying" (click)="pause()">
-                        <span class="mif-pause mif-5x"></span>
+                    <button class = "btn" *ngIf="isPlaying" (click)="pause()">
+                        <img class="logo" src="assets/svg/pause.svg">
                     </button>
                 </div>
                 <!-- Slider pour l'audio -->
@@ -56,7 +56,13 @@
                     <input data-role="slider" class="ultra-thin cycle-marker">
                 </div>
                 <div class="button-go-live">
-                    <button href="#" class="buttonLive">Go live</button>
+                    <button class = "btn" *ngIf="!isLive" (click)="goLive()">
+                        <img class="logo-go-live" src="assets/svg/go_live.svg">
+                    </button>
+
+                    <button class = "btn" *ngIf="isLive" (click)="pauseLive()">
+                        <img class="logo-go-live" src="assets/svg/live_on.svg">
+                    </button>
                 </div>
             </div>
             <!-- Text area pour commenter  -->

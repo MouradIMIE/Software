@@ -160,16 +160,22 @@ p {
 }
 
 .logo {
-  width: 153px;
+  width: 100px;
   display: block;
   float: right;
 }
 
-.output-area{
+.logo-go-live {
+  width: 60px;
+  display: flex;
+  float: right;
+}
+
+.output-area {
   position: relative;
-  border: 2px solid black;
+  border: 3px solid black;
   border-radius: 15%;
-  top:-60px;
+  top: -60px;
   height: 150px;
   resize: none;
 }
@@ -194,12 +200,17 @@ input {
   border: 1px;
 }
 
+button {
+  background-color: #ffffff;
+  border: none;
+}
+
 .textarea {
   position: relative;
-  margin-top: 40px;
+  margin-top: 30px;
   width: 300px;
   border: 1px solid #000000;
-  top: 50px;
+  top: 40px;
 }
 
 .button.primary {
@@ -208,50 +219,57 @@ input {
   background-color: #0366d6;
   color: #fff;
   left: 60%;
-  
+
 }
-.mif-volume-medium{
+
+.mif-volume-medium {
   position: relative;
   top: 30px;
   right: 170px;
 }
 
-.slider-volume{
+.slider-volume {
   position: relative;
   margin-top: 70px;
   top: -30px;
 }
+
 .slider .complete {
   z-index: 3;
   background-color: #0366d6;
 }
 
 .buttonLive {
-	background:linear-gradient(to bottom, #ff0000 5%, #576650 100%);
-	background-color:#ff0000;
-	border-radius:42px;
+  background: linear-gradient(to bottom, #ff0000 5%, #576650 100%);
+  background-color: #ff0000;
+  border-radius: 42px;
   border: 1px solid #000000;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Trebuchet MS;
-	font-size:17px;
-	font-style:italic;
-	padding:10px 9px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #223320;
-}
-.buttonLive:hover {
-	background:linear-gradient(to bottom, #576650 5%, #ff0000 100%);
-	background-color:#576650;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Trebuchet MS;
+  font-size: 17px;
+  font-style: italic;
+  padding: 10px 9px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #223320;
 }
 
-.button-go-live{
+.buttonLive:hover {
+  background: linear-gradient(to bottom, #576650 5%, #ff0000 100%);
+  background-color: #576650;
+}
+
+.button-go-live {
   position: relative;
-  top:20px;
-  left:120px;
+  top: 20px;
+  left: 120px;
 }
 
 a:hover {
-  background-color:#5bc0de;
+  background-color: #5bc0de;
+}
+
+.btn:focus{
+  outline: none;
 }

@@ -8,7 +8,7 @@ import { Component, OnInit } from "@angular/core";
 
 export class RadioPageComponent implements OnInit{
     isPlaying : boolean = false;
-    
+    isLive: boolean = false;
     constructor(){
 
     }
@@ -21,8 +21,17 @@ export class RadioPageComponent implements OnInit{
         this.isPlaying = true;
     }
 
-//mettre la musique en pause
+    //mettre la musique en pause
+
     pause(){
         this.isPlaying = false;
+    }
+
+    goLive(){
+        this.isLive = true;
+    }
+
+    pauseLive(){
+        this.isLive = false;
     }
 }
