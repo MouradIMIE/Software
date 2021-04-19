@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
 </head>
 
 <body>
@@ -92,9 +93,8 @@
                 </div>
                 <div class="modal-body">
                     <!-- Add song -->
-                    <input id="fileInput" type="file" style="display:none;" />
-                    <button class="action-button second bg-blue"
-                        onclick="document.getElementById('fileInput').click();">
+                    <input type="file" id="upload" (change)="upload($event)" accept=".mp3" />
+                    <button class="action-button second bg-blue" (click)="uploadSong()">
                         <span class="icon"><span class="mif-plus"></span></span>
                     </button>
                     <div class="formgroup">

@@ -22,11 +22,16 @@ import { ChartsModule } from 'ng2-charts';
 
 import { LoginComponent } from './Login/login.component';
 import { ForgotPasswordComponent } from './forgotpassword/forgot-password.component'
-import { RadioPageComponent } from './radioPage/radioPage.component'; 
+import { RadioPageComponent } from './radioPage/radioPage.component';
 import { AdminPageComponent } from './adminPage/adminPage.component';
 import { SongPageComponent } from './songPage/songPage.component';
 import { ProgramsComponent } from './programs/programs.component';
 import { StatisticsComponent } from './statistics/statistics.component';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { environment } from '../environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -59,8 +64,10 @@ import { StatisticsComponent } from './statistics/statistics.component';
       provide: DateAdapter,
       useFactory: adapterFactory,
     }),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule,
   ],
-  exports : [
+  exports: [
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
