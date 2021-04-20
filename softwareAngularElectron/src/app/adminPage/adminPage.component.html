@@ -25,7 +25,7 @@
                         <a class="bottom-three"></a>
                         <li class="menu-title">Settings</li>
                         <li><a routerLink="/statistics"><span class="mif-chart-dots icon"></span>Statistics</a></li>
-                        <li><a routerLink="/login"><span class="mif-cancel icon"></span>Logout</a></li>
+                        <li><a (click)="logOut()"><span class="mif-cancel icon"></span>Logout</a></li>
                         <a class="bottom-three"></a>
                     </ul>
                 </div>
@@ -89,25 +89,29 @@
                             data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">Add a new admin</h4>
                     </div>
-                    <div class="modal-body">
-                        <div class="formgroup">
-                            <label class="inputModal">Your firstname*</label>
-                            <input type="text"/>
+                    <form [formGroup]="registerForm" (ngSubmit)="register()">
+                        <div class="modal-body">
+                            <div class="formgroup">
+                                <label class="inputModal">Your firstname*</label>
+                                <input type="text" formControlName="firstname" />
+                            </div>
+                            <div class="formgroup" id="name-form">
+                                <label class="inputModal">Your lastname*</label>
+                                <input type="text" formControlName="lastname" />
+                            </div>
+                            <div class="formgroup" id="name-form">
+                                <label class="inputModalemail">Your email*</label>
+                                <input type="text" formControlName="email" />
+                            </div>
+
                         </div>
-                        <div class="formgroup" id="name-form">
-                            <label class="inputModal">Your lastname*</label>
-                            <input type="text"/>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" (click)="showModal=false"
+                                data-dismiss="modal">Close</button>
+                            <button type="submit" data-dismiss="adminModal" class="btn btn-primary">Confirm</button>
+
                         </div>
-                        <div class="formgroup" id="name-form">
-                            <label class="inputModalemail">Your email*</label>
-                            <input type="text"/>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" (click)="showModal=false"
-                            data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary">Confirm</button>
-                    </div>
+                    </form>
                 </div>
 
             </div>
@@ -118,3 +122,4 @@
 </body>
 
 </html>
+

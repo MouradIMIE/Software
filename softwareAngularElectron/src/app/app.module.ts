@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 
@@ -31,7 +33,7 @@ import { StatisticsComponent } from './statistics/statistics.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
-
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,7 @@ import { environment } from '../environments/environment';
     MatFormFieldModule,
     MatTableModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     NgMetro4Module,
     ChartsModule,
     FlatpickrModule.forRoot(),
@@ -66,6 +69,9 @@ import { environment } from '../environments/environment';
     }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   exports: [
     MatButtonModule,
