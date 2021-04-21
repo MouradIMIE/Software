@@ -1,82 +1,76 @@
 :host {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
   .page-content {
-    background-color: #000000;
+    background-color: #100f15;
     color: white;
     height: 100%;
     width: 100%;
     margin: 0;
   }
-  
+
   p {
     margin: 0;
   }
-  
+
   ::ng-deep {
+    //mat-form section
     $input-main-color: white;
     $input-label-color: white;
+
     .ng-touched::-webkit-input-placeholder {
       color: $input-main-color;
     }
+
+    .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+      opacity: 1 !important;
+    }
+
     .ng-untouched::-webkit-input-placeholder {
       color: $input-main-color;
     }
-    // mat-icon-stepper selected color change
-    .mat-step-header .mat-step-icon-selected,
-    .mat-step-header .mat-step-icon-state-done,
-    .mat-step-header .mat-step-icon-state-edit {
-      background-color: $input-main-color !important;
-    }
-  
+
     // input outline color
     .mat-form-field-appearance-outline .mat-form-field-outline {
       color: $input-main-color !important;
     }
-  
+
     // mat-input focused color
     .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
       color: $input-main-color !important;
     }
-  
+
     // mat-input error outline color
-    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid
-      .mat-form-field-outline-thick {
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid {
       color: $input-main-color !important;
       opacity: 0.8 !important;
     }
-  
+
     // mat-input caret color
     .mat-input-element {
       caret-color: $input-main-color !important;
     }
-  
+
     // mat-input error caret color
     .mat-form-field-invalid .mat-input-element,
     .mat-warn .mat-input-element {
       caret-color: $input-main-color !important;
     }
-  
+
     // mat-label normal state style
     .mat-form-field-label {
       color: $input-label-color !important;
     }
-  
+
     // mat-label focused style
     .mat-form-field.mat-focused .mat-form-field-label {
       color: $input-main-color !important;
     }
-  
+
     // mat-label error style
     .mat-form-field.mat-form-field-invalid .mat-form-field-label {
       color: $input-main-color !important;
     }
   }
-  
+
   .split {
     height: 100%;
     width: 50%;
@@ -86,7 +80,7 @@
     overflow-x: hidden;
     padding-top: 20px;
   }
-  
+
   /* Control the left side */
   .left {
     left: 0;
@@ -120,7 +114,7 @@
     display: table-cell;
     width: 400px;
   }
-  
+
   .container {
     display: table;
     margin: 0 auto;
@@ -132,6 +126,7 @@
     margin-right: auto;
     width: 240px;
   }
+
   .logo {
     width: 153px;
     margin: 20px;
@@ -139,38 +134,38 @@
     display: block;
   }
 
-  .title{
-    font-family: 'Nanum Pen Script' ;
+  .title {
+    font-family: 'Nanum Pen Script';
     font-size: 50px;
     padding-bottom: 2em;
   }
-  
+
   mat-form-field {
     width: 230px;
     display: block;
     margin: 10px auto;
   }
-  
+
   .button {
     background-color: #2724C0;
-    color:#ffffff;
+    color: #ffffff;
     margin: 0px auto;
     display: block;
     width: 130px;
   }
-  
+
   .lock {
     background: url(../../assets/svg/lock.svg) no-repeat scroll 0px 0px;
     fill: white;
     padding-left: 30px;
   }
-  
+
   .user {
     background: url(../../assets/svg/user.svg) no-repeat scroll 0px 0px;
     padding-left: 30px;
     fill: white;
   }
-  
+
   .forgot-pwd {
     color: #ffffff;
     position: relative;
@@ -179,5 +174,6 @@
   }
 
   a:hover {
-    background-color:#5bc0de;
+    background-color: #5bc0de;
   }
+}

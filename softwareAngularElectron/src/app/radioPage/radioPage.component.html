@@ -13,7 +13,7 @@
                 <div class="menu">
                     <ul class="v-menu">
                         <li class="menu-title">MyAdmin</li>
-                        <li><a class="mif-name">Mourad</a></li>
+                        <li><a class="mif-name">{{adminConnected}}</a></li>
                         <li class="menu-title">General</li>
                         <li><a routerLink="/radio"><span class="mif-home icon fg-blue"></span>Dashboard</a></li>
                         <li><a routerLink="/admin"><span class="mif-organization icon"></span>Admin</a></li>
@@ -22,7 +22,7 @@
                         <a class="bottom-three"></a>
                         <li class="menu-title">Settings</li>
                         <li><a routerLink="/statistics"><span class="mif-chart-dots icon"></span>Statistics</a></li>
-                        <li><a routerLink="/login"><span class="mif-cancel icon"></span>Logout</a></li>
+                        <li><a (click)="logOut()"><span class="mif-cancel icon"></span>Logout</a></li>
                         <a class="bottom-three"></a>
                     </ul>
                 </div>

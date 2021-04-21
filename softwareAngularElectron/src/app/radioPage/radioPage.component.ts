@@ -1,37 +1,52 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
-@Component({ 
-    selector: 'radioPage', 
-    templateUrl: './radioPage.component.html', 
-    styleUrls: ['./radioPage.component.scss'] 
-}) 
 
-export class RadioPageComponent implements OnInit{
-    isPlaying : boolean = false;
+@Component({
+    selector: 'radioPage',
+    templateUrl: './radioPage.component.html',
+    styleUrls: ['./radioPage.component.scss']
+})
+
+export class RadioPageComponent implements OnInit {
+    adminConnected = localStorage.getItem('firstname');
+    isPlaying: boolean = false;
     isLive: boolean = false;
-    constructor(){
+    constructor(private router: Router, private authService: AuthService) {
 
     }
 
-    ngOnInit() : void {
-     
+    ngOnInit(): void {
+
     }
+
+    logOut(): void {
+        this.authService.logout(localStorage.getItem('token'))
+            .pipe()
+            .subscribe(data => {
+                localStorage.setItem('token', '');
+                localStorage.setItem('firstname', '');
+                this.router.navigateByUrl('/login');
+            });
+    }
+
     // jouer la radio
-    play(){
+    play() {
         this.isPlaying = true;
     }
 
     //mettre la musique en pause
 
-    pause(){
+    pause() {
         this.isPlaying = false;
     }
 
-    goLive(){
+    goLive() {
         this.isLive = true;
     }
 
-    pauseLive(){
+    pauseLive() {
         this.isLive = false;
     }
 }

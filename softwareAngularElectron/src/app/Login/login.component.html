@@ -11,24 +11,23 @@
             <div class="centered">
 
                 <div class="form">
-                    <img class="logo" src="assets/png/Logo.png">
-                    <div>
-                        <mat-form-field appearance="outline">
-                            <mat-label>Username</mat-label>
-                            <input matInput placeholder="Placeholder">
-                            <mat-icon matSuffix><span class="user"></span></mat-icon>
-                        </mat-form-field>
-                    </div>
-                    <div>
-                        <mat-form-field appearance="outline">
-                            <mat-label>Password</mat-label>
-                            <input matInput  placeholder="Placeholder">
-                            <mat-icon matSuffix><span class="lock"></span></mat-icon>
-                        </mat-form-field>
-                    </div>
-                    <a class="forgot-pwd" routerLink="/forgot-password">Forgot Password ?</a>
-                    <button mat-button class="button" routerLink="/radio">Login</button>
-
+                    <form [formGroup]="loginForm" (ngSubmit)="login()">
+                        <img class="logo" src="assets/png/Logo.png">
+                        <div>
+                            <mat-form-field appearance="outline">
+                                <mat-label><span class="user"></span>Username</mat-label>
+                                <input matInput formControlName="email">
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field appearance="outline">
+                                <mat-label><span class="lock"></span>Password</mat-label>
+                                <input matInput formControlName="password">
+                            </mat-form-field>
+                        </div>
+                        <a class="forgot-pwd" routerLink="/forgot-password">Forgot Password ?</a>
+                        <button mat-button class="button" type="submit">Login</button>
+                    </form>
                 </div>
             </div>
             <div class="verticalLine"></div>

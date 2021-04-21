@@ -250,6 +250,14 @@ input[type=text] {
   width: 50%;
   left: 25%;
 }
+textarea[type=text] {
+  margin-bottom: 20px;
+  border: 2px solid #0366d6;
+  border-radius: 4px;
+  padding-left: 10px;
+  width: 50%;
+  left: 25%;
+}
 
 .inputModal {
   position: relative;
@@ -284,18 +292,31 @@ input[type=text] {
 }
 
 a:hover {
-  background-color:#5bc0de;
+  background-color: #5bc0de;
 }
 
-.input-file{
-  position: relative;
-  left: 40%;
-  width: 50%;
-  border: 2px solid #0366d6;
-  color: white;
-  padding: 0.5rem;
-  font-family: sans-serif;
-  border-radius: 0.3rem;
+
+.label-file {
   cursor: pointer;
-  margin-top: 1rem;
+  color: #00b1ca;
+  font-weight: bold;
+  position: relative;
+  left: 42%;
+}
+
+.label-file:hover {
+  color: #0366d6;
+}
+
+// et on masque le input
+.input-file {
+  display: none;
+}
+
+.div-file{
+  cursor: pointer;
+  color: black;
+  text-align: center;
+  font-weight: bold;
+  position: relative;
 }
