@@ -176,4 +176,11 @@
   a:hover {
     background-color: #5bc0de;
   }
+
+  .inputPassword{
+    -webkit-text-security: disc;
+    background: transparent !important;
+    border: none !important;
+    color: white;
+  }
 }

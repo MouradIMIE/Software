@@ -31,6 +31,11 @@ export class AuthService {
     return this.httpClient.get("https://api-radio-world.herokuapp.com/admin/get-admins", { headers });
   }
 
+  getCustomersData(token: string): Observable<object> {
+    const headers = { 'Authorization': 'Bearer ' + token };
+    return this.httpClient.get("https://api-radio-world.herokuapp.com/admin/get-customers-data", { headers });
+  }
+
   logout(token: string): Observable<object> {
     const headers = { 'Authorization': 'Bearer ' + token };
     return this.httpClient.delete("https://api-radio-world.herokuapp.com/admin/logout", { headers });

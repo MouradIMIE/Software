@@ -3,6 +3,7 @@ import { ChartType, ChartOptions, ChartDataSets } from 'chart.js';
 import { SingleDataSet, Label, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from 'ng2-charts';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { CustomersDataList, CustomerDataElement } from 'src/app/types/customersData.type';
 
 @Component({
     selector: 'statistics',
@@ -11,7 +12,10 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 
 export class StatisticsComponent implements OnInit {
+
     adminConnected = localStorage.getItem('firstname');
+    birthDateList: Array<CustomerDataElement> = [];
+
     public pieChartOptions: ChartOptions = {
         responsive: true,
     };
@@ -40,8 +44,24 @@ export class StatisticsComponent implements OnInit {
     }
 
     ngOnInit(): void {
-
+        this.getBirthDate();
     }
+    // Get birhtDate to make stats
+    getBirthDate(): void {
+        this.authService.getCustomersData(localStorage.getItem('token'))
+            .pipe()
+            .subscribe((data: CustomersDataList) => {
+                for (let i = 0; i < data.customers.length; i++) {
+                    let elem: CustomerDataElement = { dateOfBirth: '' };
+                    elem.dateOfBirth = data.customers[i].dateOfBirth;
+                    this.birthDateList.push(elem);
+                }
+                console.log(this.birthDateList);
+            })
+    }
+
+    // ------- Logout -------
+
     logOut(): void {
         this.authService.logout(localStorage.getItem('token'))
             .pipe()
