@@ -15,6 +15,13 @@ export class StatisticsComponent implements OnInit {
 
     adminConnected = localStorage.getItem('firstname');
     birthDateList: Array<CustomerDataElement> = [];
+    public from15to18 = 0;
+    public from19to22 = 0;
+    public from23to26 = 0;
+    public from27to30 = 0;
+    public from31to35 = 0;
+    public over35 = 0;
+
 
     public pieChartOptions: ChartOptions = {
         responsive: true,
@@ -29,13 +36,13 @@ export class StatisticsComponent implements OnInit {
     public pieChartLegend = true;
     public pieChartPlugins = [];
 
-    public barChartLabels: Label[] = ['15-18', '18-22', '22-25', '25-30', '30-35', '35+'];
+    public barChartLabels: Label[] = ['15-18', '19-22', '23-26', '27-30', '31-35', '35+'];
     public barChartType: ChartType = 'bar';
     public barChartLegend = true;
     public barChartPlugins = [];
 
     public barChartData: ChartDataSets[] = [
-        { data: [46, 25, 10, 5, 2, 3, 9], label: 'Age of users in %' },
+        { data: [this.from15to18, this.from19to22, this.from23to26, this.from27to30, this.from31to35, this.over35], label: 'Age of users in %' },
     ];
 
     constructor(private router: Router, private authService: AuthService) {
@@ -54,9 +61,43 @@ export class StatisticsComponent implements OnInit {
                 for (let i = 0; i < data.customers.length; i++) {
                     let elem: CustomerDataElement = { dateOfBirth: '' };
                     elem.dateOfBirth = data.customers[i].dateOfBirth;
+                    var resultAge: number = new Date().getFullYear() - parseInt(elem.dateOfBirth.slice(0, 4))
+                    if (15 <= resultAge && resultAge <= 18) {
+                        this.from15to18 += 1;
+                    }
+                    if (19 <= resultAge && resultAge <= 22) {
+                        this.from19to22 += 1;
+                    }
+                    if (23 <= resultAge && resultAge <= 26) {
+                        this.from23to26 += 1;
+                    }
+                    if (27 <= resultAge && resultAge <= 30) {
+                        this.from27to30 += 1;
+                    }
+                    if (31 <= resultAge && resultAge <= 35) {
+                        this.from31to35 += 1;
+                    }
+                    if (35 <= resultAge) {
+                        this.over35 += 1;
+                    }
                     this.birthDateList.push(elem);
                 }
-                console.log(this.birthDateList);
+                this.from15to18 = Math.round((this.from15to18 * 100) / data.customers.length);
+                this.from19to22 = Math.round((this.from19to22 * 100) / data.customers.length);
+                this.from23to26 = Math.round((this.from23to26 * 100) / data.customers.length);
+                this.from27to30 = Math.round((this.from27to30 * 100) / data.customers.length);
+                this.from31to35 = Math.round((this.from31to35 * 100) / data.customers.length);
+                this.over35 = (this.over35 * 100) / data.customers.length;
+
+                for (let i = 0; i <= 6; i++) {
+                    this.barChartData[0].data.pop();
+                }
+                (this.barChartData[0].data as number[]).push(this.from15to18);
+                (this.barChartData[0].data as number[]).push(this.from19to22);
+                (this.barChartData[0].data as number[]).push(this.from23to26);
+                (this.barChartData[0].data as number[]).push(this.from27to30);
+                (this.barChartData[0].data as number[]).push(this.from31to35);
+                (this.barChartData[0].data as number[]).push(this.over35);
             })
     }
 
