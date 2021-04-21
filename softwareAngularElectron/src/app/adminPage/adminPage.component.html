@@ -16,7 +16,7 @@
                 <div class="menu">
                     <ul class="v-menu">
                         <li class="menu-title">MyAdmin</li>
-                        <li><a class="mif-name">Mourad</a></li>
+                        <li><a class="mif-name">{{adminConnected}}</a></li>
                         <li class="menu-title">General</li>
                         <li><a routerLink="/radio"><span class="mif-home icon"></span>Dashboard</a></li>
                         <li><a routerLink="/admin"><span class="mif-organization icon fg-blue"></span>Admin</a></li>
@@ -54,23 +54,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Mourad</td>
-                            <td>Boukhalfi</td>
-                            <td>mouradboukhalfi3@gmail.com</td>
-                            <td>Super Admin</td>
-                        </tr>
-                        <tr>
-                            <td>Marc</td>
-                            <td>Jean Pierre</td>
-                            <td>jeanpierre.developer@gmail.com</td>
-                            <td>Mourad</td>
-                        </tr>
-                        <tr>
-                            <td>Nelson</td>
-                            <td>Tapinfo</td>
-                            <td>tapinfoulrichnelson@gmail.com</td>
-                            <td>Mourad</td>
+                        <tr *ngFor="let admin of adminList">
+                            <td>{{admin.firstname}}</td>
+                            <td>{{admin.lastname}}</td>
+                            <td>{{admin.email}}</td>
+                            <td>{{admin.createdBy}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -122,4 +110,3 @@
 </body>
 
 </html>
-

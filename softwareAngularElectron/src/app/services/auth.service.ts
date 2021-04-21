@@ -13,9 +13,9 @@ export class AuthService {
   register(admin: RegisterAdmin): Observable<object> {
     return this.httpClient.post("https://api-radio-world.herokuapp.com/admin/register", {
       'firstname': admin.firstname,
-      'lastname' : admin.lastname,
-      'email' : admin.email,
-      'createdBy' : admin.createdBy,
+      'lastname': admin.lastname,
+      'email': admin.email,
+      'createdBy': admin.createdBy,
     });
   }
 
@@ -24,6 +24,11 @@ export class AuthService {
       'email': admin.email,
       'password': admin.password
     });
+  }
+
+  getAdmins(token: string): Observable<object> {
+    const headers = { 'Authorization': 'Bearer ' + token };
+    return this.httpClient.get("https://api-radio-world.herokuapp.com/admin/get-admins", { headers });
   }
 
   logout(token: string): Observable<object> {

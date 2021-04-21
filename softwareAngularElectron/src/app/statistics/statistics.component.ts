@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 
 export class StatisticsComponent implements OnInit {
+    adminConnected = localStorage.getItem('firstname');
     public pieChartOptions: ChartOptions = {
         responsive: true,
     };
@@ -46,6 +47,7 @@ export class StatisticsComponent implements OnInit {
             .pipe()
             .subscribe(data => {
                 localStorage.setItem('token', '');
+                localStorage.setItem('firstname', '');
                 this.router.navigateByUrl('/login');
             });
     }

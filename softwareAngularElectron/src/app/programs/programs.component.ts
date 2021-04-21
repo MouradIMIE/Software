@@ -47,6 +47,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 
 export class ProgramsComponent {
+  adminConnected = localStorage.getItem('firstname');
 
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
 
@@ -208,6 +209,7 @@ export class ProgramsComponent {
       .pipe()
       .subscribe(data => {
         localStorage.setItem('token', '');
+        localStorage.setItem('firstname', '');
         this.router.navigateByUrl('/login');
       });
   }

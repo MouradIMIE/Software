@@ -18,7 +18,7 @@
                 <div class="menu">
                     <ul class="v-menu">
                         <li class="menu-title">MyAdmin</li>
-                        <li><a class="mif-name">Mourad</a></li>
+                        <li><a class="mif-name">{{adminConnected}}</a></li>
                         <li class="menu-title">General</li>
                         <li><a routerLink="/radio"><span class="mif-home icon"></span>Dashboard</a></li>
                         <li><a routerLink="/admin"><span class="mif-organization icon"></span>Admin</a></li>
@@ -49,30 +49,18 @@
                     data-pagination-short-mode="true">
                     <thead>
                         <tr>
-                            <td>Title</td>
-                            <td>Duration</td>
-                            <td>Artist</td>
-                            <td>Genre</td>
+                            <th>Title</th>
+                            <th>Duration</th>
+                            <th>Artist</th>
+                            <th>Genre</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>RST</td>
-                            <td>2:44</td>
-                            <td>Booba</td>
-                            <td>Rap</td>
-                        </tr>
-                        <tr>
-                            <td>Bonne journée</td>
-                            <td>3:24</td>
-                            <td>Booba ft. Sdm</td>
-                            <td>Rap</td>
-                        </tr>
-                        <tr>
-                            <td>Ultra</td>
-                            <td>2:59</td>
-                            <td>Booba</td>
-                            <td>Rap</td>
+                        <tr *ngFor="let songs of songList">
+                            <td>{{songs.title}}</td>
+                            <td>{{songs.time}}</td>
+                            <td>{{songs.artist}}</td>
+                            <td>{{songs.genre}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -98,23 +86,19 @@
                     <div class="div-file" id="file-upload-filename">{{this.fileUploadName}}</div>
                     <div class="formgroup">
                         <label class="inputModal-s">Title*</label>
-                        <input type="text" />
+                        <textarea id="textAreaTitle" type="text">{{this.fileTitle}}</textarea>
+                    </div>
+                    <div class="formgroup" id="name-form">
+                        <label class="inputModal">Duration*</label>
+                        <textarea id="textAreaDuration" type="text">{{this.fileDuration}}</textarea>
                     </div>
                     <div class="formgroup" id="name-form">
                         <label class="inputModal">Artist*</label>
-                        <input type="text" />
-                    </div>
-                    <div class="formgroup" id="name-form">
-                        <label class="inputModal">Album*</label>
-                        <input type="text" />
+                        <textarea id="textAreaArtist" type="text">{{this.fileArtist}}</textarea>
                     </div>
                     <div class="formgroup" id="name-form">
                         <label class="inputModal">Genre*</label>
-                        <input type="text" />
-                    </div>
-                    <div class="formgroup" id="name-form">
-                        <label class="inputModal-s">Year*</label>
-                        <input type="text" />
+                        <textarea id="textAreaGenre" type="text">{{this.fileGenre}}</textarea>
                     </div>
                 </div>
                 <div class="modal-footer">

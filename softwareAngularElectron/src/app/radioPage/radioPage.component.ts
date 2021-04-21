@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 
 export class RadioPageComponent implements OnInit {
+    adminConnected = localStorage.getItem('firstname');
     isPlaying: boolean = false;
     isLive: boolean = false;
     constructor(private router: Router, private authService: AuthService) {
@@ -25,6 +26,7 @@ export class RadioPageComponent implements OnInit {
             .pipe()
             .subscribe(data => {
                 localStorage.setItem('token', '');
+                localStorage.setItem('firstname', '');
                 this.router.navigateByUrl('/login');
             });
     }
