@@ -17,6 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material'
 import { NgMetro4Module } from 'ng-metro4';
@@ -61,6 +62,7 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     NgMetro4Module,
+    MatSelectModule,
     ChartsModule,
     FlatpickrModule.forRoot(),
     CalendarModule.forRoot({

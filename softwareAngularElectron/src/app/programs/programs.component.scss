@@ -81,6 +81,7 @@ p {
   }
 }
 
+
 .split {
   height: 100%;
   width: 50%;
@@ -255,7 +256,7 @@ pre {
 
 .inputModal {
   position: relative;
-  left: 45%
+  left: 44%
 }
 
 .inputModal-s {
@@ -271,6 +272,14 @@ pre {
 }
 
 input[type=text] {
+  margin-bottom: 20px;
+  border: 2px solid #0366d6;
+  border-radius: 4px;
+  padding-left: 10px;
+  width: 50%;
+  left: 25%;
+}
+textarea[type=text]{
   margin-bottom: 20px;
   border: 2px solid #0366d6;
   border-radius: 4px;
@@ -300,4 +309,15 @@ input[type=text] {
 
 a:hover {
   background-color: #5bc0de;
+}
+
+.example-additional-selection {
+  opacity: 0.75;
+  font-size: 0.75em;
+}
+
+.table>tbody>tr>td,
+.table>thead>tr>td {
+
+  text-align: center;
 }

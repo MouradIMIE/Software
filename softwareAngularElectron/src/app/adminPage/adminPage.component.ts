@@ -28,7 +28,7 @@ export class AdminPageComponent implements OnInit {
     ngOnInit(): void {
         this.getAdmin();
         this.registerForm = this.formBuilder.group({
-            firstname: ['', Validators.required],
+            firstname : ['', Validators.required],
             lastname: ['', Validators.required],
             email: ['', Validators.required],
             createdBy: localStorage.getItem('firstname'),

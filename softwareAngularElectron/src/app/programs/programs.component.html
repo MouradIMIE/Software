@@ -183,10 +183,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Best of Booba</td>
-                                        <td>10</td>
-                                        <td>35</td>
+                                    <tr *ngFor="let playlist of playlistList">
+                                        <td>{{playlist.title}}</td>
+                                        <td>{{playlist.nb_songs}}</td>
+                                        <td>{{playlist.time}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -213,42 +213,42 @@
                     </div>
                     <div class="modal-body">
                         <!-- CHOOSE SONGS -->
-                        <div class="selector">
-                            <select data-role="select" multiple>
-                                <option>Scarface - Booba</option>
-                                <option selected class="text-bold">Ultra - Booba</option>
-                                <option>RST - Booba</option>
-                            </select>
-                        </div>
+                        <mat-form-field class="selector" appearance="fill">
+                            <mat-label style="color: black;">Songs</mat-label>
+                            <mat-select [(ngModel)]="selectedSong" (ngModelChange)="getUrl()" multiple>
+                                <mat-option *ngFor="let song of songList" [value]="song">{{song.title}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
                         <!-- INPUTS -->
-                        <div class="formgroup">
-                            <label class="inputModal-s">Title*</label>
-                            <input type="text" />
-                        </div>
-                        <div class="formgroup" id="name-form">
-                            <label class="inputModal">Time*</label>
-                            <input type="text" />
-                        </div>
-                        <div class="formgroup" id="name-form">
-                            <label class="inputModal">N° Songs*</label>
-                            <input type="text" />
-                        </div>
-                        <div class="formgroup" id="name-form">
-                            <label class="inputModal">Genre*</label>
-                            <input type="text" />
-                        </div>
+                        <form [formGroup]="addPlaylistForm" (ngSubmit)="createPlaylist()">
+                            <div class="formgroup">
+                                <label class="inputModal-s">Title*</label>
+                                <textarea type="text" [(ngModel)]="inputTitle" formControlName="title"></textarea>
+                            </div>
+                            <div class="formgroup" id="name-form">
+                                <label class="inputModal-s">Time*</label>
+                                <textarea readonly type="text" [(ngModel)]="inputTime" (ngModelChange)="getUrl()"
+                                    formControlName="time"></textarea>
+                            </div>
+                            <div class="formgroup" id="name-form">
+                                <label class="inputModal">N° Songs*</label>
+                                <textarea readonly type="text" [(ngModel)]="inputNbSongs" (ngModelChange)="getUrl()"
+                                    formControlName="nb_songs"></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" (click)="showModal=false"
+                                    data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Confirm</button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" (click)="showModal=false"
-                            data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary">Confirm</button>
-                    </div>
+
                 </div>
 
             </div>
         </div>
 
-        <!-- Playlist planning -->
+        <!-- Modal planning -->
         <div class="modal" id="planningModal" role="dialog" [ngClass]="{'show':showPlanningModal}">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
