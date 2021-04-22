@@ -61,10 +61,12 @@ export class ProgramsComponent {
   inputTitle: string;
   inputTime: string;
   inputNbSongs: string;
+  resTime = 0;
+  resNbSong = 0;
   addPlaylistForm: FormGroup;
   isSubmitted: boolean = false;
-  selectedSong: Array<String>;
-  Song: Array<String> = [];
+  selectedSong: Array<SongElement>;
+  Song: Array<SongElement> = [];
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
 
   view: CalendarView = CalendarView.Month;
@@ -115,14 +117,22 @@ export class ProgramsComponent {
     for (let i = 0; i < this.selectedSong.length; i++) {
       if (!this.Song.includes(this.selectedSong[i])) {
         this.Song.push(this.selectedSong[i]);
+        this.resTime += parseFloat(this.selectedSong[i].time);
+        this.resNbSong += 1;
+        this.inputTime = this.resTime.toString();
+        this.inputNbSongs = this.resNbSong.toString();
       }
     }
     for (let j = 0; j < this.Song.length; j++) {
       if (!this.selectedSong.includes(this.Song[j])) {
+        let val: number = this.resTime
+        this.resTime = parseFloat((val - (parseFloat(this.Song[j].time))).toFixed(2));
+        this.resNbSong += -1;
+        this.inputTime = this.resTime.toString();
+        this.inputNbSongs = this.resNbSong.toString();
         this.Song.splice(j, 1);
       }
     }
-    console.log(this.Song)
   }
 
 
@@ -136,8 +146,9 @@ export class ProgramsComponent {
     elem.title = this.inputTitle
     elem.time = this.inputTime;
     elem.nb_songs = this.inputNbSongs;
+    console.log(this.Song[0].time)
     for (let i = 0; i < this.Song.length; i++) {
-      elem.url.push(this.Song[i]);
+      elem.url.push(this.Song[i].url);
     }
     this.playlistList.push(elem);
     this.songService.addPlaylist(elem)

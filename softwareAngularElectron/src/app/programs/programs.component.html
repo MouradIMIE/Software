@@ -216,22 +216,24 @@
                         <mat-form-field class="selector" appearance="fill">
                             <mat-label style="color: black;">Songs</mat-label>
                             <mat-select [(ngModel)]="selectedSong" (ngModelChange)="getUrl()" multiple>
-                                <mat-option *ngFor="let song of songList" [value]="song.url">{{song.title}}</mat-option>
+                                <mat-option *ngFor="let song of songList" [value]="song">{{song.title}}</mat-option>
                             </mat-select>
                         </mat-form-field>
                         <!-- INPUTS -->
                         <form [formGroup]="addPlaylistForm" (ngSubmit)="createPlaylist()">
                             <div class="formgroup">
                                 <label class="inputModal-s">Title*</label>
-                                <input type="text" [(ngModel)]="inputTitle" formControlName="title" />
+                                <textarea type="text" [(ngModel)]="inputTitle" formControlName="title"></textarea>
                             </div>
                             <div class="formgroup" id="name-form">
                                 <label class="inputModal-s">Time*</label>
-                                <input type="text" [(ngModel)]="inputTime" formControlName="time" />
+                                <textarea readonly type="text" [(ngModel)]="inputTime" (ngModelChange)="getUrl()"
+                                    formControlName="time"></textarea>
                             </div>
                             <div class="formgroup" id="name-form">
                                 <label class="inputModal">N° Songs*</label>
-                                <input type="text" [(ngModel)]="inputNbSongs" formControlName="nb_songs" />
+                                <textarea readonly type="text" [(ngModel)]="inputNbSongs" (ngModelChange)="getUrl()"
+                                    formControlName="nb_songs"></textarea>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" (click)="showModal=false"
