@@ -1,4 +1,8 @@
 import { Component } from "@angular/core";
+import { SongService } from '../services/song.service';
+import { AddSongType } from '../types/addSong.type';
+import { SongList, SongElement } from '../types/songList.type';
+import { PlaylistList, Playlist } from '../types/playlistList.type';
 import {
   ChangeDetectionStrategy,
   ViewChild,
@@ -39,6 +43,9 @@ const colors: any = {
 };
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from "ngx-toastr";
+
 @Component({
   selector: 'programs',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -47,8 +54,17 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 
 export class ProgramsComponent {
-  adminConnected = localStorage.getItem('firstname');
 
+  adminConnected = localStorage.getItem('firstname');
+  songList: Array<SongElement> = [];
+  playlistList: Array<Playlist> = [];
+  inputTitle: string;
+  inputTime: string;
+  inputNbSongs: string;
+  addPlaylistForm: FormGroup;
+  isSubmitted: boolean = false;
+  selectedSong: Array<String>;
+  Song: Array<String> = [];
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
 
   view: CalendarView = CalendarView.Month;
@@ -56,6 +72,103 @@ export class ProgramsComponent {
   CalendarView = CalendarView;
 
   viewDate: Date = new Date();
+  constructor(private modal: NgbModal, private router: Router,
+    private authService: AuthService,
+    private formBuilder: FormBuilder,
+    private songService: SongService,
+    private toastr: ToastrService) { }
+
+
+  ngOnInit(): void {
+    this.getSongs();
+    this.getPlaylist();
+    this.addPlaylistForm = this.formBuilder.group({
+      title: ['', Validators.required],
+      nb_songs: ['', Validators.required],
+      time: ['', Validators.required],
+      url: [''],
+    })
+  }
+
+  get formControls() {
+    return this.addPlaylistForm.controls;
+  }
+
+  // Function to getSongs from Database
+  getSongs(): void {
+    this.songService.getSongs(localStorage.getItem('token'))
+      .pipe()
+      .subscribe((data: SongList) => {
+        for (let i = 0; i < data.songs.length; i++) {
+          let elem: SongElement = { artist: '', title: '', genre: '', time: '', url: '' };
+          elem.artist = data.songs[i].artist;
+          elem.title = data.songs[i].title;
+          elem.genre = data.songs[i].genre;
+          elem.time = data.songs[i].time;
+          elem.url = data.songs[i].url;
+          this.songList.push(elem);
+        }
+      })
+  }
+
+  public getUrl() {
+    for (let i = 0; i < this.selectedSong.length; i++) {
+      if (!this.Song.includes(this.selectedSong[i])) {
+        this.Song.push(this.selectedSong[i]);
+      }
+    }
+    for (let j = 0; j < this.Song.length; j++) {
+      if (!this.selectedSong.includes(this.Song[j])) {
+        this.Song.splice(j, 1);
+      }
+    }
+    console.log(this.Song)
+  }
+
+
+  // Create Playlist and add it to DataBase
+  createPlaylist(): void {
+    this.isSubmitted = true;
+    if (this.addPlaylistForm.invalid) {
+      return;
+    }
+    let elem: Playlist = { title: '', time: '', nb_songs: '', url: [] };
+    elem.title = this.inputTitle
+    elem.time = this.inputTime;
+    elem.nb_songs = this.inputNbSongs;
+    for (let i = 0; i < this.Song.length; i++) {
+      elem.url.push(this.Song[i]);
+    }
+    this.playlistList.push(elem);
+    this.songService.addPlaylist(elem)
+      .pipe()
+      .subscribe((data: PlaylistList) => {
+        console.log(data.playlist)
+
+        this.toastr.success('You can now close the modal', 'New admin added');
+        console.log(elem);
+      },
+        (error) => {
+          this.toastr.warning(error.error.message)
+        }
+      );
+  }
+
+  getPlaylist(): void {
+    this.songService.getPlaylist(localStorage.getItem('token'))
+      .pipe()
+      .subscribe((data: PlaylistList) => {
+        for (let i = 0; i < data.playlist.length; i++) {
+          let elem: Playlist = { title: '', nb_songs: '', time: '', url: [] };
+          elem.title = data.playlist[i].title;
+          elem.nb_songs = data.playlist[i].nb_songs;
+          elem.time = data.playlist[i].time;
+          this.playlistList.push(elem);
+        }
+      })
+  }
+
+
   // -----------------------------------------------------------------------------------------------------------
   //                                               CALENDAR
   // -----------------------------------------------------------------------------------------------------------                                         CALENDAR
@@ -127,7 +240,6 @@ export class ProgramsComponent {
 
   activeDayIsOpen: boolean = true;
 
-  constructor(private modal: NgbModal, private router: Router, private authService: AuthService) { }
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
     if (isSameMonth(date, this.viewDate)) {

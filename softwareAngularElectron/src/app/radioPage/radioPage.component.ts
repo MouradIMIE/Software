@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-
+import { ToastrService } from 'ngx-toastr';
+import Pizzicato from 'pizzicato'
 
 @Component({
     selector: 'radioPage',
@@ -10,10 +11,13 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 
 export class RadioPageComponent implements OnInit {
+
     adminConnected = localStorage.getItem('firstname');
     isPlaying: boolean = false;
     isLive: boolean = false;
-    constructor(private router: Router, private authService: AuthService) {
+    public voice: any;
+
+    constructor(private router: Router, private authService: AuthService,private toastr: ToastrService) {
 
     }
 
@@ -44,9 +48,18 @@ export class RadioPageComponent implements OnInit {
 
     goLive() {
         this.isLive = true;
+        this.voice = new Pizzicato.Sound({
+            source: 'input',
+            options: { volume: 1 }
+        }, () => {
+            this.voice.play();
+            this.toastr.success("Record on");
+        });
     }
 
     pauseLive() {
         this.isLive = false;
+        this.voice.stop();
+        this.toastr.success("Record off");
     }
 }
