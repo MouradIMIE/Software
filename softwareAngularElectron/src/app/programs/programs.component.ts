@@ -156,7 +156,7 @@ export class ProgramsComponent {
       .subscribe((data: PlaylistList) => {
         console.log(data.playlist)
 
-        this.toastr.success('You can now close the modal', 'New admin added');
+        this.toastr.success('You can now close the modal', 'New playlist Added');
         console.log(elem);
       },
         (error) => {
