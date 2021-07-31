@@ -28,7 +28,7 @@ export class SongPageComponent implements OnInit {
     fileDuration: number;
     fileURL: string;
     fileUploadName: string;
-    fileGenre: string;
+    fileYear: string;
 
     //FormGroup
     addSongForm: FormGroup;
@@ -48,13 +48,14 @@ export class SongPageComponent implements OnInit {
 
     async upload(event) {
         const metadata = await musicMetadata.parseBlob(event.target.files[0]);
+        console.log(metadata)
         // This element for the request
         this.filePath = event.target.files[0];
         this.fileUploadName = event.target.files[0].name;
         this.fileTitle = metadata.common.title;
         this.fileArtist = metadata.common.artist;
         this.fileDuration = parseFloat(((metadata.format.duration) / 60).toFixed(2));
-        this.fileGenre = 'Hip/Hop';
+        this.fileYear = String(metadata.common.year);
     }
 
     get formControls() {
@@ -71,7 +72,7 @@ export class SongPageComponent implements OnInit {
             artist: this.fileArtist,
             time: this.fileDuration.toString(),
             url: await this.afStorage.storage.ref(this.fileTitle).getDownloadURL(),
-            genre: this.fileGenre
+            genre: this.fileYear
         })
         this.isSubmitted = true;
         if (this.addSongForm.invalid) {

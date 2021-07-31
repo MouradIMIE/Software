@@ -261,9 +261,9 @@ input[type=text] {
   left: 25%;
 }
 
-.sous-title{
+.sous-title {
   position: relative;
-  left:50%;
+  left: 50%;
 }
 
 .centered-chart {
@@ -274,8 +274,28 @@ input[type=text] {
   text-align: center;
 }
 
-a:hover {
-  background-color:#5bc0de;
+.adminName {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: #600;
+  line-height: 22px;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
+.titleFont {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: #600;
+  line-height: 22px;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 
+a:hover {
+  background-color: #5bc0de;
+}
