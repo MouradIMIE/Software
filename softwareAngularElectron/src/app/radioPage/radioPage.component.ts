@@ -16,6 +16,7 @@ export class RadioPageComponent implements OnInit {
     adminConnected = localStorage.getItem('firstname');
     isPlaying: boolean = false;
     isLive: boolean = false;
+    message : string;
     public voice: any;
     @Input() src ='';
     constructor(private socket: Socket,private router: Router, private authService: AuthService, private toastr: ToastrService) {
@@ -37,6 +38,12 @@ export class RadioPageComponent implements OnInit {
                 //this.src =reader.result.toString();
             }
         })
+    }
+
+    
+    getMessage() : void {
+        this.message = (<HTMLInputElement>document.getElementById('message')).value;
+        this.socket.emit("message",this.message);
     }
 
     logOut(): void {

@@ -72,11 +72,11 @@
                 </div>
             </div>
             <!-- Text area pour commenter  -->
-            <input type="text" />
+            <textarea id="message" type="text">{{this.message}}</textarea>
 
             <!-- div pour le button send -->
 
-            <button class="button primary cycle">
+            <button class="button primary cycle" (click)="getMessage()">
                 <span class="mif-compass"></span>
             </button>
 
