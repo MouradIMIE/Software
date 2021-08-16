@@ -165,6 +165,27 @@ p {
   float: right;
 }
 
+.adminName {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: #600;
+  line-height: 22px;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.titleFont{
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: #600;
+  line-height: 22px;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 .output-area {
   position: relative;
   border: 2px solid black;
@@ -199,7 +220,13 @@ p {
   box-shadow: 0px 4px 37px 6px rgba(0, 0, 0, 0.51);
   border-radius: 25px;
 }
-.table>caption+thead>tr:first-child>td, .table>caption+thead>tr:first-child>th, .table>colgroup+thead>tr:first-child>td, .table>colgroup+thead>tr:first-child>th, .table>thead:first-child>tr:first-child>td, .table>thead:first-child>tr:first-child>th {
+
+.table>caption+thead>tr:first-child>td,
+.table>caption+thead>tr:first-child>th,
+.table>colgroup+thead>tr:first-child>td,
+.table>colgroup+thead>tr:first-child>th,
+.table>thead:first-child>tr:first-child>td,
+.table>thead:first-child>tr:first-child>th {
   border-top: 0;
   text-align: center;
 }
@@ -255,5 +282,5 @@ input[type=text] {
 }
 
 a:hover {
-  background-color:#5bc0de;
+  background-color: #5bc0de;
 }

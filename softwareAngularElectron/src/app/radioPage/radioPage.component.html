@@ -12,9 +12,9 @@
             <div class="page-content">
                 <div class="menu">
                     <ul class="v-menu">
-                        <li class="menu-title">MyAdmin</li>
-                        <li><a class="mif-name">{{adminConnected}}</a></li>
-                        <li class="menu-title">General</li>
+                        <li class="titleFont">USER</li>
+                        <li><a class="adminName">{{adminConnected}}</a></li>
+                        <li class="titleFont">General</li>
                         <li><a routerLink="/radio"><span class="mif-home icon fg-blue"></span>Dashboard</a></li>
                         <li><a routerLink="/admin"><span class="mif-organization icon"></span>Admin</a></li>
                         <li><a routerLink="/song"><span class="mif-music icon"></span>Songs</a></li>
@@ -46,13 +46,15 @@
                 <!-- Button Audio -->
                 <div class="flex_box">
                     <!-- Play Button -->
-                    <button class="btn" *ngIf="!isPlaying" (click)="play()">
+                    <audio autoplay controls src="{{src}}"></audio>
+                    <p>{{src}}</p>
+                    <!-- <button class="btn" *ngIf="!isPlaying" (click)="play()">
                         <img class="logo" src="assets/svg/play.svg">
-                    </button>
+                    </button> -->
                     <!-- Pause Button -->
-                    <button class="btn" *ngIf="isPlaying" (click)="pause()">
+                    <!-- <button class="btn" *ngIf="isPlaying" (click)="pause()">
                         <img class="logo" src="assets/svg/pause.svg">
-                    </button>
+                    </button> -->
                 </div>
                 <!-- Slider pour l'audio -->
                 <div class="slider-volume">
@@ -70,11 +72,11 @@
                 </div>
             </div>
             <!-- Text area pour commenter  -->
-            <input type="text" />
+            <textarea id="message" type="text">{{this.message}}</textarea>
 
             <!-- div pour le button send -->
 
-            <button class="button primary cycle">
+            <button class="button primary cycle" (click)="getMessage()">
                 <span class="mif-compass"></span>
             </button>
 

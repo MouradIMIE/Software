@@ -17,9 +17,9 @@
             <div class="page-content">
                 <div class="menu">
                     <ul class="v-menu">
-                        <li class="menu-title">MyAdmin</li>
-                        <li><a class="mif-name">{{adminConnected}}</a></li>
-                        <li class="menu-title">General</li>
+                        <li class="titleFont">USER</li>
+                        <li><a class="adminName">{{adminConnected}}</a></li>
+                        <li class="titleFont">General</li>
                         <li><a routerLink="/radio"><span class="mif-home icon"></span>Dashboard</a></li>
                         <li><a routerLink="/admin"><span class="mif-organization icon"></span>Admin</a></li>
                         <li><a routerLink="/song"><span class="mif-music icon fg-blue"></span>Songs</a></li>
@@ -98,7 +98,7 @@
                     </div>
                     <div class="formgroup" id="name-form">
                         <label class="inputModal">Genre*</label>
-                        <textarea id="textAreaGenre" type="text">{{this.fileGenre}}</textarea>
+                        <textarea id="textAreaGenre" type="text">{{this.fileYear}}</textarea>
                     </div>
                 </div>
                 <div class="modal-footer">

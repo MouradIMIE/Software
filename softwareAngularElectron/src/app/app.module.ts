@@ -36,6 +36,9 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
 import { ToastrModule } from 'ngx-toastr';
 
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+const config: SocketIoConfig = { url: 'http://localhost:3002', options: {} };
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +58,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatInputModule,
     MatIconModule,
     MatTabsModule,
+    SocketIoModule.forRoot(config),
     MatNativeDateModule,
     MatDatepickerModule,
     MatFormFieldModule,

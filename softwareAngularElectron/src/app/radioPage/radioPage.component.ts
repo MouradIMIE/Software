@@ -1,8 +1,9 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
-import Pizzicato from 'pizzicato'
+import Pizzicato from 'pizzicato';
+import { Socket } from 'ngx-socket-io';
 
 @Component({
     selector: 'radioPage',
@@ -15,14 +16,34 @@ export class RadioPageComponent implements OnInit {
     adminConnected = localStorage.getItem('firstname');
     isPlaying: boolean = false;
     isLive: boolean = false;
+    message : string;
     public voice: any;
-
-    constructor(private router: Router, private authService: AuthService,private toastr: ToastrService) {
+    @Input() src ='';
+    constructor(private socket: Socket,private router: Router, private authService: AuthService, private toastr: ToastrService) {
 
     }
 
     ngOnInit(): void {
+        let reader = new FileReader()
+        this.socket.on("document", (data) => {
+            console.log(data) //rarraybuffer
+            const blob = new Blob([data], { type: "audio/wav" });
+            reader.readAsDataURL(blob);//url
+            let self = this;
+            reader.onloadend = (progressEvent) => {
+                console.log('stop test', reader.result)
+                //this.src=(window.URL ? URL : webkitURL).createObjectURL(blob);
 
+                // console.log(reader)
+                //this.src =reader.result.toString();
+            }
+        })
+    }
+
+    
+    getMessage() : void {
+        this.message = (<HTMLInputElement>document.getElementById('message')).value;
+        this.socket.emit("message",this.message);
     }
 
     logOut(): void {
