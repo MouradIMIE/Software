@@ -5,4 +5,5 @@ export type CustomersDataList = {
 
 export type CustomerDataElement = {
     "dateOfBirth": string,
+    "idSubscriptionStripe": string,
 }
