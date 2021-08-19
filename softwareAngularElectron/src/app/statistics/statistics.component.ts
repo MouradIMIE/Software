@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ChartType, ChartOptions, ChartDataSets } from 'chart.js';
-import { SingleDataSet, Label, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from 'ng2-charts';
+import { SingleDataSet, Label, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip, defaultColors } from 'ng2-charts';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { CustomersDataList, CustomerDataElement } from 'src/app/types/customersData.type';
@@ -21,7 +21,8 @@ export class StatisticsComponent implements OnInit {
     public from27to30 = 0;
     public from31to35 = 0;
     public over35 = 0;
-
+    public subscribed = 0;
+    public unsubscribed = 0;
 
     public pieChartOptions: ChartOptions = {
         responsive: true,
@@ -30,8 +31,9 @@ export class StatisticsComponent implements OnInit {
     public barChartOptions: ChartOptions = {
         responsive: true,
     };
-    public pieChartLabels: Label[] = [['Hip/Hop', 'Rap'], 'Classic'];
-    public pieChartData: SingleDataSet = [500, 300];
+    
+    public pieChartLabels: Label[] = ['Abonné', 'Non abonné'];
+    public pieChartData: SingleDataSet = [this.subscribed,this.unsubscribed];
     public pieChartType: ChartType = 'pie';
     public pieChartLegend = true;
     public pieChartPlugins = [];
@@ -52,6 +54,7 @@ export class StatisticsComponent implements OnInit {
 
     ngOnInit(): void {
         this.getBirthDate();
+        this.getSubscriptionStatistics();
     }
     // Get birhtDate to make stats
     getBirthDate(): void {
@@ -59,7 +62,7 @@ export class StatisticsComponent implements OnInit {
             .pipe()
             .subscribe((data: CustomersDataList) => {
                 for (let i = 0; i < data.customers.length; i++) {
-                    let elem: CustomerDataElement = { dateOfBirth: '' };
+                    let elem: CustomerDataElement = { dateOfBirth: '', idSubscriptionStripe: '' };
                     elem.dateOfBirth = data.customers[i].dateOfBirth;
                     var resultAge: number = new Date().getFullYear() - parseInt(elem.dateOfBirth.slice(0, 4))
                     if (15 <= resultAge && resultAge <= 18) {
@@ -100,6 +103,27 @@ export class StatisticsComponent implements OnInit {
                 (this.barChartData[0].data as number[]).push(this.over35);
             })
     }
+
+    getSubscriptionStatistics(): void {
+        this.authService.getCustomersData(localStorage.getItem('token'))
+            .pipe()
+            .subscribe((data: CustomersDataList) => {
+                for (let i = 0; i < data.customers.length; i++) {
+                    let elem: CustomerDataElement = { dateOfBirth: '', idSubscriptionStripe: '' };
+                    elem.idSubscriptionStripe = data.customers[i].idSubscriptionStripe;
+                    if (elem.idSubscriptionStripe === "") {
+                        this.unsubscribed += 1;
+                    }
+                    else {
+                        this.subscribed += 1;
+                    }
+                }
+                this.unsubscribed = (this.unsubscribed / data.customers.length) * 100;
+                this.subscribed = (this.subscribed / data.customers.length) * 100;           
+                this.pieChartData = [Math.round(this.subscribed*100)/100,Math.round(this.unsubscribed*100)/100];
+            })
+    }
+
 
     // ------- Logout -------
 
