@@ -59,7 +59,7 @@ export class ProgramsComponent {
   songList: Array<SongElement> = [];
   playlistList: Array<Playlist> = [];
   inputTitle: string;
-  inputTime: string;
+  inputTime: number;
   inputNbSongs: string;
   resTime = 0;
   resNbSong = 0;
@@ -119,7 +119,8 @@ export class ProgramsComponent {
         this.Song.push(this.selectedSong[i]);
         this.resTime += parseFloat(this.selectedSong[i].time);
         this.resNbSong += 1;
-        this.inputTime = this.resTime.toString();
+        this.inputTime = this.convertToSeconds(this.resTime);
+        console.log(this.inputTime)
         this.inputNbSongs = this.resNbSong.toString();
       }
     }
@@ -128,13 +129,24 @@ export class ProgramsComponent {
         let val: number = this.resTime
         this.resTime = parseFloat((val - (parseFloat(this.Song[j].time))).toFixed(2));
         this.resNbSong += -1;
-        this.inputTime = this.resTime.toString();
+        this.inputTime = this.convertToSeconds(this.resTime);
         this.inputNbSongs = this.resNbSong.toString();
         this.Song.splice(j, 1);
       }
     }
   }
 
+  convertToSeconds(ms:number): number {
+    var toConvert = ms.toString().split('.');
+    var seconds = (parseInt(toConvert[0])*60) + parseInt(toConvert[1]);
+    return seconds
+  }
+
+  convertSecondsToMinutesAndSeconds(ms: number) : string {
+    var minutes = Math.floor(ms / 60);
+    var seconds = ms - (minutes * 60);
+    return ""+minutes+"."+seconds;
+  }
 
   // Create Playlist and add it to DataBase
   createPlaylist(): void {
@@ -144,7 +156,7 @@ export class ProgramsComponent {
     }
     let elem: Playlist = { title: '', time: '', nb_songs: '', url: [] };
     elem.title = this.inputTitle
-    elem.time = this.inputTime;
+    elem.time = this.convertSecondsToMinutesAndSeconds(this.inputTime);
     elem.nb_songs = this.inputNbSongs;
     console.log(this.Song[0].time)
     for (let i = 0; i < this.Song.length; i++) {
