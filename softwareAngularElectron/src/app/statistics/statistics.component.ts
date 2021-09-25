@@ -32,7 +32,7 @@ export class StatisticsComponent implements OnInit {
         responsive: true,
     };
     
-    public pieChartLabels: Label[] = ['Abonné', 'Non abonné'];
+    public pieChartLabels: Label[] = ['subscribed', 'No subscribed'];
     public pieChartData: SingleDataSet = [this.subscribed,this.unsubscribed];
     public pieChartType: ChartType = 'pie';
     public pieChartLegend = true;

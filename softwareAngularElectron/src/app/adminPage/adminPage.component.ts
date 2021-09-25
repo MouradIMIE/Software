@@ -28,7 +28,7 @@ export class AdminPageComponent implements OnInit {
     ngOnInit(): void {
         this.getAdmin();
         this.registerForm = this.formBuilder.group({
-            firstname : ['', Validators.required],
+            firstname: ['', Validators.required],
             lastname: ['', Validators.required],
             email: ['', Validators.required],
             createdBy: localStorage.getItem('firstname'),
@@ -50,11 +50,11 @@ export class AdminPageComponent implements OnInit {
             .subscribe((data: AdminRegister) => {
                 console.log(data.admin);
                 let elem: AdminElement = { firstname: '', lastname: '', email: '', createdBy: '' };
-                    elem.firstname = data.admin.firstname;
-                    elem.lastname = data.admin.lastname;
-                    elem.email = data.admin.email;
-                    elem.createdBy = localStorage.getItem("firstname");
-                    this.adminList.push(elem);
+                elem.firstname = data.admin.firstname;
+                elem.lastname = data.admin.lastname;
+                elem.email = data.admin.email;
+                elem.createdBy = localStorage.getItem("firstname");
+                this.adminList.push(elem);
                 this.router.navigateByUrl('/admin');
                 this.toastr.success('You can now close the modal', 'New admin added');
             },
@@ -85,6 +85,16 @@ export class AdminPageComponent implements OnInit {
     // ----- LOGOUT ----- // 
     logOut(): void {
         this.authService.logout(localStorage.getItem('token'))
+            .pipe()
+            .subscribe(data => {
+                localStorage.setItem('token', '');
+                localStorage.setItem('firstname', '');
+                this.router.navigateByUrl('/login');
+            });
+    }
+
+    deleteAccount(): void {
+        this.authService.deleteAccount(localStorage.getItem('token'))
             .pipe()
             .subscribe(data => {
                 localStorage.setItem('token', '');

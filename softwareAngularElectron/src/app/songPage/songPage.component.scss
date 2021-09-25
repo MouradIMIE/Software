@@ -347,3 +347,16 @@ a:hover {
   font-weight: bold;
   position: relative;
 }
+
+.button-delete {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.selector {
+  position: relative;
+  width: 40%;
+  left: 30%;
+  padding-bottom: 10px;
+}

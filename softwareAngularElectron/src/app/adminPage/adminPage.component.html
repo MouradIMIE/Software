@@ -26,6 +26,8 @@
                         <li class="menu-title">Settings</li>
                         <li><a routerLink="/statistics"><span class="mif-chart-dots icon"></span>Statistics</a></li>
                         <li><a (click)="logOut()"><span class="mif-cancel icon"></span>Logout</a></li>
+                        <li><a (click)="showModalDelete=true" data-toggle="modal" data-target="#deleteAccount"><span
+                                    class="mif-backspace1 icon"></span>Delete Account</a></li>
                         <a class="bottom-three"></a>
                     </ul>
                 </div>
@@ -80,15 +82,15 @@
                     <form [formGroup]="registerForm" (ngSubmit)="register()">
                         <div class="modal-body">
                             <div class="formgroup">
-                                <label class="inputModal">Your firstname*</label>
+                                <label class="inputModal">&nbsp;&nbsp;&nbsp;&nbsp;Firstname*</label>
                                 <input type="text" formControlName="firstname" />
                             </div>
                             <div class="formgroup" id="name-form">
-                                <label class="inputModal">Your lastname*</label>
+                                <label class="inputModal">&nbsp;&nbsp;&nbsp;&nbsp;Lastname*</label>
                                 <input type="text" formControlName="lastname" />
                             </div>
                             <div class="formgroup" id="name-form">
-                                <label class="inputModalemail">Your email*</label>
+                                <label class="inputModalemail">&nbsp;&nbsp;&nbsp;&nbsp;Email*</label>
                                 <input type="text" formControlName="email" />
                             </div>
 
@@ -98,6 +100,27 @@
                                 data-dismiss="modal">Close</button>
                             <button type="submit" data-dismiss="adminModal" class="btn btn-primary">Confirm</button>
 
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modal Delete Account -->
+        <div class="modal" id="deleteAccount" role="dialog" [ngClass]="{'show':showModalDelete}">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" (click)="showModalDelete=false"
+                            data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Do you really want to delete your account?</h4>
+                    </div>
+                    <form [formGroup]="registerForm" (ngSubmit)="deleteAccount()">
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" (click)="showModalDelete=false"
+                                data-dismiss="modal">Close</button>
+                            <button type="submit" data-dismiss="DeleteAccount" class="btn btn-primary">Confirm</button>
                         </div>
                     </form>
                 </div>

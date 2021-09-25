@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { SongService } from '../services/song.service';
 import { AddSongType } from '../types/addSong.type';
-import { SongList , SongElement} from '../types/songList.type'
+import { SongList, SongElement } from '../types/songList.type'
 
 import * as musicMetadata from 'music-metadata-browser';
 import { ToastrService } from 'ngx-toastr';
@@ -82,7 +82,7 @@ export class SongPageComponent implements OnInit {
             .pipe()
             .subscribe((data: AddSongType) => {
                 this.router.navigateByUrl('/song');
-                let elem: SongElement = { artist: '', title: '', genre: '', time: '' , url: ''};
+                let elem: SongElement = { artist: '', title: '', genre: '', time: '', url: '' };
                 elem.artist = document.getElementById("textAreaArtist").innerHTML;
                 elem.title = document.getElementById("textAreaTitle").innerHTML;
                 elem.time = document.getElementById("textAreaDuration").innerHTML;
@@ -95,6 +95,15 @@ export class SongPageComponent implements OnInit {
                 }
             )
     }
+
+    // Function to delete Song
+    async deleteSong() {
+        const table = document.getElementById('songTable');
+        console.log(table);
+    }
+
+    // await this.afStorage.storage.refFromURL("fafa").delete();
+
 
     // Function to get SongURL
 
@@ -109,9 +118,9 @@ export class SongPageComponent implements OnInit {
     getSongs(): void {
         this.songService.getSongs(localStorage.getItem('token'))
             .pipe()
-            .subscribe((data:SongList)=>{
+            .subscribe((data: SongList) => {
                 for (let i = 0; i < data.songs.length; i++) {
-                    let elem: SongElement = { artist: '', title: '', genre: '', time: '' , url: ''};
+                    let elem: SongElement = { artist: '', title: '', genre: '', time: '', url: '' };
                     elem.artist = data.songs[i].artist;
                     elem.title = data.songs[i].title;
                     elem.genre = data.songs[i].genre;

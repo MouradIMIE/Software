@@ -41,7 +41,6 @@ export class LoginComponent implements OnInit {
         this.authService.login(this.loginForm.value)
             .pipe()
             .subscribe((data: AdminAuth) => {
-                console.log(data.admin);
                 localStorage.setItem('token', data.admin.token);
                 localStorage.setItem('firstname', data.admin.firstname);
                 this.router.navigateByUrl('/radio');
